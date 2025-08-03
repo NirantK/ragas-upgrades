@@ -13,8 +13,10 @@ def load_results():
     files = [
         ("amnesty_ragas_main.json", "AmnestyQA", "Ragas Main"),
         ("amnesty_ragas_experimental.json", "AmnestyQA", "Experimental"),
+        ("amnesty_ragas_experimental_exact.json", "AmnestyQA", "Exact Replica"),
         ("fiqa_ragas_main.json", "FIQA", "Ragas Main"),
-        ("fiqa_ragas_experimental.json", "FIQA", "Experimental")
+        ("fiqa_ragas_experimental.json", "FIQA", "Experimental"),
+        ("fiqa_ragas_experimental_exact.json", "FIQA", "Exact Replica")
     ]
     
     for filename, dataset, framework in files:
@@ -35,7 +37,7 @@ def print_summary(results):
     print("=" * 80)
     
     datasets = ["AmnestyQA", "FIQA"]
-    frameworks = ["Ragas Main", "Experimental"]
+    frameworks = ["Ragas Main", "Experimental", "Exact Replica"]
     
     for dataset in datasets:
         print(f"\n{dataset} Dataset:")
@@ -66,6 +68,7 @@ def print_summary(results):
     for dataset in datasets:
         main_key = f"{dataset}_Ragas Main"
         exp_key = f"{dataset}_Experimental"
+        exact_key = f"{dataset}_Exact Replica"
         
         if main_key in results and exp_key in results:
             main_data = results[main_key]
@@ -74,7 +77,7 @@ def print_summary(results):
             main_scores = main_data.get("scores", [])
             exp_scores = exp_data.get("scores", [])
             
-            print(f"\n{dataset} - Score Comparison:")
+            print(f"\n{dataset} - Score Comparison (Ragas Main vs Original Experimental):")
             print("  Sample  | Ragas Main | Experimental | Difference")
             print("  --------|------------|--------------|----------")
             
@@ -89,6 +92,32 @@ def print_summary(results):
                 avg_diff = exp_avg - main_avg
                 print("  --------|------------|--------------|----------")
                 print(f"  Average | {main_avg:10.4f} | {exp_avg:12.4f} | {avg_diff:+10.4f}")
+
+        if main_key in results and exact_key in results:
+            main_data = results[main_key]
+            exact_data = results[exact_key]
+            
+            main_scores = main_data.get("scores", [])
+            exact_scores = exact_data.get("scores", [])
+            
+            print(f"\n{dataset} - Score Comparison (Ragas Main vs Exact Replica):")
+            print("  Sample  | Ragas Main | Exact Replica | Difference")
+            print("  --------|------------|---------------|----------")
+            
+            for i, (main_score, exact_score) in enumerate(zip(main_scores, exact_scores)):
+                diff = exact_score - main_score if isinstance(main_score, (int, float)) and isinstance(exact_score, (int, float)) else "N/A"
+                diff_str = f"{diff:+.4f}" if isinstance(diff, (int, float)) else diff
+                print(f"  {i+1:6d}  | {main_score:10.4f} | {exact_score:13.4f} | {diff_str:>10}")
+            
+            if main_scores and exact_scores:
+                main_avg = sum(main_scores) / len(main_scores)
+                exact_avg = sum(exact_scores) / len(exact_scores)
+                avg_diff = exact_avg - main_avg
+                abs_diff = abs(avg_diff)
+                target_met = "✓ ACHIEVED" if abs_diff < 0.01 else "✗ TARGET NOT MET" 
+                print("  --------|------------|---------------|----------")
+                print(f"  Average | {main_avg:10.4f} | {exact_avg:13.4f} | {avg_diff:+10.4f}")
+                print(f"  Abs Diff: {abs_diff:.4f} (<0.01 target) - {target_met}")
 
 def main():
     """Main function"""

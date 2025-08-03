@@ -1,0 +1,931 @@
+{
+  "timestamp": "2025-08-03T13:50:42.652908",
+  "dataset": "AmnestyQA",
+  "framework": "ragas_experimental_exact",
+  "metric": "faithfulness",
+  "num_samples": 10,
+  "num_successful": 10,
+  "average_faithfulness": 0.5973880916684515,
+  "scores": [
+    1.0,
+    0.2,
+    0.0,
+    0.9642857142857143,
+    1.0,
+    0.896551724137931,
+    0.8,
+    0.0,
+    0.2,
+    0.9130434782608695
+  ],
+  "detailed_results": [
+    {
+      "sample": {
+        "question": "What are the consequences of criminalizing abortion for marginalized individuals?",
+        "answer": "Criminalizing abortion can have severe consequences for marginalized individuals, particularly those who are already facing various forms of discrimination and inequality. Some of the consequences include:\n\n1. Health risks: When abortion is criminalized, individuals may resort to unsafe and illegal methods to terminate their pregnancies, leading to serious health complications and even death. Marginalized individuals, who often have limited access to healthcare and resources, are more likely to be affected by these risks.\n\n2. Economic burden: Marginalized individuals, who are more likely to face financial constraints, may struggle to afford safe and legal abortions in countries where it is criminalized. This can lead to increased financial burdens, as they may have to travel long distances or seek expensive underground services.\n\n3. Limited reproductive choices: Criminalizing abortion restricts individuals' reproductive choices and autonomy. Marginalized individuals, who already face various barriers to accessing healthcare and education, may be further limited in their ability to make informed decisions about their reproductive health.\n\n4. Increased inequality: Criminalizing abortion disproportionately affects marginalized individuals, exacerbating existing inequalities. Women from low-income backgrounds, racial and ethnic minorities, LGBTQ+ individuals, and those living in rural areas often face additional barriers to accessing safe and legal abortion services, further widening the gap between privileged and marginalized groups.\n\n5. Criminalization of pregnancy: In some cases, criminalizing abortion can lead to the criminalization of pregnancy itself. This can result in the surveillance and punishment of pregnant individuals, particularly those from marginalized communities, who may be subjected to invasive monitoring, discrimination, and even imprisonment for actions perceived as harmful to the fetus.\n\n6. Mental health impact: The criminalization of abortion can have significant psychological consequences for marginalized individuals. The stigma and shame associated with seeking illegal abortions or being unable to access safe services can lead to increased stress, anxiety, and depression.\n\n7. Reproductive injustice: Criminalizing abortion perpetuates reproductive injustice by denying marginalized individuals the right to control their own bodies and make decisions about their reproductive health. It reinforces systemic inequalities and denies them the same reproductive rights and freedoms enjoyed by more privileged individuals.\n\nIt is important to note that these consequences are not limited to criminalizing abortion alone but are often intertwined with broader social, economic, and healthcare disparities faced by marginalized communities.",
+        "contexts": "- Abortion criminalization contributes to stigma around abortion and particularly on those who need, provide or assist with abortion services.\n- Criminalization, lack of information, disinformation, and stigma have severe and irreversible effects, particularly on marginalized individuals.\n- Girls and young women are kept in the dark about their rights and often forced to bring to term pregnancies resulting from sexual violence.\n- Marginalized individuals, including those living in poverty, historically discriminated against, Indigenous and Afro-descendent women, migrants, and refugees, are disproportionately affected by abortion criminalization.\n- Criminalization of abortion is the biggest contributing factor to the estimated 35 million unsafe abortions happening every year, increasing maternal mortality and morbidity.\n- Criminalizing abortion undermines access to health services and leads to increased rates of preventable maternal mortality and morbidity.\n- Abortion criminalization forces women, girls, and all pregnant individuals to attempt unsafe clandestine abortion methods, placing their life and health at risk.\n- Abortion laws in Nigeria are restrictive, making abortion unsafe and difficult to access safe abortion care.\nIn countries where abortion is illegal or highly restricted, marginalized individuals, such as low-income women, young girls, and immigrants, are disproportionately affected. They may resort to unsafe and clandestine methods to terminate a pregnancy, putting their lives at risk. The criminalization of abortion can further perpetuate cycles of poverty, inequality, and discrimination, as marginalized individuals are denied the autonomy to make decisions about their own bodies and futures.\nThe debate over abortion has been a contentious issue for decades, with strong opinions on both sides of the argument. The criminalization of abortion can have far-reaching consequences for marginalized individuals, particularly those who may not have access to safe and legal options for terminating a pregnancy. This can lead to increased health risks, financial burdens, and emotional distress for those who are already facing systemic barriers to healthcare and support services."
+      },
+      "faithfulness_score": 1.0,
+      "reasoning": "Faithful statements: 26/26",
+      "statements": [
+        "Criminalizing abortion can have severe consequences for marginalized individuals.",
+        "Marginalized individuals often face various forms of discrimination and inequality.",
+        "Some consequences of criminalizing abortion include health risks.",
+        "When abortion is criminalized, individuals may resort to unsafe and illegal methods to terminate pregnancies.",
+        "Unsafe and illegal methods can lead to serious health complications and even death.",
+        "Marginalized individuals often have limited access to healthcare and resources.",
+        "Marginalized individuals are more likely to be affected by health risks associated with unsafe abortion methods.",
+        "Another consequence of criminalizing abortion is the economic burden on marginalized individuals.",
+        "Marginalized individuals are more likely to face financial constraints.",
+        "Marginalized individuals may struggle to afford safe and legal abortions in countries where abortion is criminalized.",
+        "Increased financial burdens can occur as marginalized individuals may have to travel long distances or seek expensive underground services.",
+        "Criminalizing abortion limits reproductive choices and autonomy for individuals.",
+        "Marginalized individuals already face various barriers to accessing healthcare and education.",
+        "Marginalized individuals may be further limited in their ability to make informed decisions about reproductive health due to criminalizing abortion.",
+        "Criminalizing abortion increases inequality among marginalized individuals.",
+        "Criminalizing abortion disproportionately affects marginalized individuals and exacerbates existing inequalities.",
+        "Women from low-income backgrounds, racial and ethnic minorities, LGBTQ+ individuals, and those living in rural areas often face additional barriers to accessing safe and legal abortion services.",
+        "These barriers further widen the gap between privileged and marginalized groups.",
+        "In some cases, criminalizing abortion can lead to the criminalization of pregnancy itself.",
+        "Criminalization of pregnancy can result in the surveillance and punishment of pregnant individuals.",
+        "Marginalized communities may be subjected to invasive monitoring, discrimination, and even imprisonment for actions perceived as harmful to the fetus.",
+        "The criminalization of abortion can have significant psychological consequences for marginalized individuals.",
+        "Stigma and shame associated with seeking illegal abortions can lead to increased stress, anxiety, and depression.",
+        "Criminalizing abortion perpetuates reproductive injustice by denying marginalized individuals the right to control their own bodies.",
+        "Marginalized individuals are denied the same reproductive rights and freedoms enjoyed by more privileged individuals.",
+        "These consequences are not limited to criminalizing abortion alone but are often intertwined with broader social, economic, and healthcare disparities faced by marginalized communities."
+      ],
+      "verdicts": [
+        {
+          "statement": "Criminalizing abortion can have severe consequences for marginalized individuals.",
+          "reason": "The context explicitly states that criminalization has severe and irreversible effects on marginalized individuals, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Marginalized individuals often face various forms of discrimination and inequality.",
+          "reason": "The context discusses how marginalized individuals are disproportionately affected by various issues, indicating they face discrimination and inequality.",
+          "verdict": 1
+        },
+        {
+          "statement": "Some consequences of criminalizing abortion include health risks.",
+          "reason": "The context mentions increased health risks as a consequence of abortion criminalization, validating this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "When abortion is criminalized, individuals may resort to unsafe and illegal methods to terminate pregnancies.",
+          "reason": "The context states that criminalization forces individuals to attempt unsafe clandestine abortion methods, confirming this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Unsafe and illegal methods can lead to serious health complications and even death.",
+          "reason": "The context discusses the risks associated with unsafe abortion methods, including increased maternal mortality and morbidity, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Marginalized individuals often have limited access to healthcare and resources.",
+          "reason": "The context highlights that marginalized individuals face systemic barriers to healthcare, affirming this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Marginalized individuals are more likely to be affected by health risks associated with unsafe abortion methods.",
+          "reason": "The context indicates that marginalized individuals are disproportionately affected by the consequences of unsafe abortion methods, validating this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Another consequence of criminalizing abortion is the economic burden on marginalized individuals.",
+          "reason": "The context discusses financial burdens faced by marginalized individuals due to the criminalization of abortion, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Marginalized individuals are more likely to face financial constraints.",
+          "reason": "The context implies that marginalized individuals face financial constraints, particularly in accessing safe abortion services, confirming this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Marginalized individuals may struggle to afford safe and legal abortions in countries where abortion is criminalized.",
+          "reason": "The context states that marginalized individuals are denied access to safe and legal options, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Increased financial burdens can occur as marginalized individuals may have to travel long distances or seek expensive underground services.",
+          "reason": "The context mentions that marginalized individuals may face financial burdens related to accessing abortion services, validating this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Criminalizing abortion limits reproductive choices and autonomy for individuals.",
+          "reason": "The context discusses how criminalization undermines access to health services and reproductive choices, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Marginalized individuals already face various barriers to accessing healthcare and education.",
+          "reason": "The context indicates that marginalized individuals face systemic barriers, confirming this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Marginalized individuals may be further limited in their ability to make informed decisions about reproductive health due to criminalizing abortion.",
+          "reason": "The context suggests that criminalization affects the autonomy of marginalized individuals in making reproductive choices, validating this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Criminalizing abortion increases inequality among marginalized individuals.",
+          "reason": "The context states that criminalization exacerbates existing inequalities, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Criminalizing abortion disproportionately affects marginalized individuals and exacerbates existing inequalities.",
+          "reason": "The context explicitly states that marginalized individuals are disproportionately affected by abortion criminalization, confirming this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Women from low-income backgrounds, racial and ethnic minorities, LGBTQ+ individuals, and those living in rural areas often face additional barriers to accessing safe and legal abortion services.",
+          "reason": "The context discusses how various marginalized groups face barriers, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "These barriers further widen the gap between privileged and marginalized groups.",
+          "reason": "The context implies that the barriers faced by marginalized individuals contribute to widening inequalities, validating this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "In some cases, criminalizing abortion can lead to the criminalization of pregnancy itself.",
+          "reason": "The context mentions the potential for criminalization to extend to pregnancy, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Criminalization of pregnancy can result in the surveillance and punishment of pregnant individuals.",
+          "reason": "The context discusses the implications of criminalizing pregnancy, confirming this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Marginalized communities may be subjected to invasive monitoring, discrimination, and even imprisonment for actions perceived as harmful to the fetus.",
+          "reason": "The context indicates that marginalized individuals face discrimination and punitive measures, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The criminalization of abortion can have significant psychological consequences for marginalized individuals.",
+          "reason": "The context discusses the psychological impact of stigma and shame associated with seeking illegal abortions, validating this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Stigma and shame associated with seeking illegal abortions can lead to increased stress, anxiety, and depression.",
+          "reason": "The context explicitly states that stigma can lead to psychological distress, confirming this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Criminalizing abortion perpetuates reproductive injustice by denying marginalized individuals the right to control their own bodies.",
+          "reason": "The context discusses how criminalization denies autonomy, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Marginalized individuals are denied the same reproductive rights and freedoms enjoyed by more privileged individuals.",
+          "reason": "The context indicates that marginalized individuals face disparities in reproductive rights, validating this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "These consequences are not limited to criminalizing abortion alone but are often intertwined with broader social, economic, and healthcare disparities faced by marginalized communities.",
+          "reason": "The context discusses the broader implications of criminalization, supporting this statement.",
+          "verdict": 1
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample": {
+        "question": "When does the prosecution consider statements contrary to the official position as 'false' under Article 207.3?",
+        "answer": "Under Article 207.3 of the Russian Criminal Code, statements contrary to the official position are considered 'false' by the prosecution when they are intentionally made with the aim of discrediting the state or its authorities, or spreading false information that could potentially harm the public interest or cause significant damage. The prosecution will consider such statements as false if they are deliberately made to mislead the public or undermine the credibility of the state.",
+        "contexts": "- As long as their statements are contrary to the official position of the Russian authorities, they can be regarded by the prosecution and courts as \u201cfalse\u201d and individuals are found guilty under Article 207.3.\n- Official information regarding Russia\u2019s full-scale invasion of Ukraine has been riddled with false and deliberately misleading messages and claims.\n- Debunking such information and providing independent analysis of the situation has been expressly criminalized.\n- Accordingly, Article 207.3 acts as a tool of wartime censorship.\n- Prosecution for \"dissemination of knowingly false information\" under Article 207.3 contributes to impunity for violations of the laws and customs of war.\n- The claim that Roman Ivanov\u2019s actions were \"in violation of constitutional order\" do not stand scrutiny either, as Article 207.3 of the Criminal Code is contrary to the provisions of the Russian Constitution itself.\n- Article 2 of the Russian Constitution proclaims human rights and freedoms as the highest value and their defense as the duty of the state.\n- Article 29 guarantees freedom of thought and speech, freedom to seek, receive, share, produce and disseminate information and media freedom.\n- At the same time, it prohibits censorship.\nIn legal proceedings, the prosecution may consider statements contrary to the official position as 'false' under Article 207.3 when they are deemed to be intentionally misleading or deceptive. This can include providing false information or deliberately distorting facts to mislead the court or authorities.\nThe determination of whether statements are considered 'false' under Article 207.3 is based on the intent behind the statements and the impact they have on the legal proceedings. If the prosecution believes that the statements were made with the purpose of obstructing justice or undermining the truth, they may be classified as 'false' and subject to legal consequences."
+      },
+      "faithfulness_score": 0.2,
+      "reasoning": "Faithful statements: 1/5",
+      "statements": [
+        "Under Article 207.3 of the Russian Criminal Code, statements contrary to the official position are considered 'false' by the prosecution.",
+        "Statements are considered 'false' by the prosecution when those statements are intentionally made with the aim of discrediting the state or its authorities.",
+        "Statements are considered 'false' by the prosecution when those statements are made to spread false information that could potentially harm the public interest or cause significant damage.",
+        "The prosecution will consider such statements as false if those statements are deliberately made to mislead the public.",
+        "The prosecution will consider such statements as false if those statements are made to undermine the credibility of the state."
+      ],
+      "verdicts": [
+        {
+          "statement": "Under Article 207.3 of the Russian Criminal Code, statements contrary to the official position are considered 'false' by the prosecution.",
+          "reason": "The context explicitly states that statements contrary to the official position can be regarded as 'false' by the prosecution under Article 207.3.",
+          "verdict": 1
+        },
+        {
+          "statement": "Statements are considered 'false' by the prosecution when those statements are intentionally made with the aim of discrediting the state or its authorities.",
+          "reason": "The context mentions that the determination of 'false' statements is based on the intent behind them, which can include misleading the court or authorities, but does not specifically state that the aim is to discredit the state or its authorities.",
+          "verdict": 0
+        },
+        {
+          "statement": "Statements are considered 'false' by the prosecution when those statements are made to spread false information that could potentially harm the public interest or cause significant damage.",
+          "reason": "The context does not mention that statements are classified as 'false' specifically for harming public interest or causing damage; it focuses on the intent to mislead legal proceedings.",
+          "verdict": 0
+        },
+        {
+          "statement": "The prosecution will consider such statements as false if those statements are deliberately made to mislead the public.",
+          "reason": "The context states that statements can be considered 'false' if they are intentionally misleading, but it specifically refers to legal proceedings rather than the public.",
+          "verdict": 0
+        },
+        {
+          "statement": "The prosecution will consider such statements as false if those statements are made to undermine the credibility of the state.",
+          "reason": "The context does not specify that undermining the credibility of the state is a criterion for classifying statements as 'false'; it focuses on the intent to mislead in legal contexts.",
+          "verdict": 0
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample": {
+        "question": "Who failed to explicitly recognize Indigenous Peoples' lands and territories as a distinct category of protected area at COP15?",
+        "answer": "At COP15, the United Nations Climate Change Conference held in 2009 in Copenhagen, Denmark, the failure to explicitly recognize Indigenous Peoples' lands and territories as a distinct category of protected area was primarily attributed to the governments of several countries. These countries included Canada, Australia, New Zealand, and the United States. These governments were criticized for their reluctance to acknowledge the rights and land claims of Indigenous Peoples, which hindered the inclusion of Indigenous lands as protected areas in the conference's agreements.",
+        "contexts": "The lack of explicit recognition of Indigenous Peoples' lands and territories as a distinct category of protected area at COP15 highlights the ongoing challenges in balancing conservation efforts with respect for Indigenous rights and sovereignty. This issue has sparked debates about the need for more inclusive and equitable decision-making processes in global conservation initiatives.\nThe issue of recognizing Indigenous Peoples' lands and territories as a distinct category of protected area at COP15 has been a point of contention among various stakeholders. While some argue that Indigenous Peoples' traditional knowledge and practices are essential for effective conservation efforts, others believe that a one-size-fits-all approach is more practical and efficient in achieving conservation goals.\nUnfortunately, at COP15, States failed to explicitly recognize Indigenous Peoples' lands and territories as a distinct category of protected area, and this threatens their rights."
+      },
+      "faithfulness_score": 0.0,
+      "reasoning": "Faithful statements: 0/5",
+      "statements": [
+        "At COP15, the United Nations Climate Change Conference took place in 2009 in Copenhagen, Denmark.",
+        "The failure to explicitly recognize Indigenous Peoples' lands and territories as a distinct category of protected area was primarily attributed to the governments of several countries.",
+        "The countries that failed to recognize Indigenous Peoples' lands included Canada, Australia, New Zealand, and the United States.",
+        "The governments of Canada, Australia, New Zealand, and the United States were criticized for their reluctance to acknowledge the rights and land claims of Indigenous Peoples.",
+        "The reluctance of these governments hindered the inclusion of Indigenous lands as protected areas in the conference's agreements."
+      ],
+      "verdicts": [
+        {
+          "statement": "At COP15, the United Nations Climate Change Conference took place in 2009 in Copenhagen, Denmark.",
+          "reason": "The context does not provide any information about the date or location of COP15, making this statement unverifiable.",
+          "verdict": 0
+        },
+        {
+          "statement": "The failure to explicitly recognize Indigenous Peoples' lands and territories as a distinct category of protected area was primarily attributed to the governments of several countries.",
+          "reason": "The context mentions that States failed to recognize Indigenous Peoples' lands but does not specify that this failure was primarily due to the actions of several countries, making this statement unverifiable.",
+          "verdict": 0
+        },
+        {
+          "statement": "The countries that failed to recognize Indigenous Peoples' lands included Canada, Australia, New Zealand, and the United States.",
+          "reason": "The context does not specify which countries failed to recognize Indigenous Peoples' lands, so this statement cannot be directly inferred.",
+          "verdict": 0
+        },
+        {
+          "statement": "The governments of Canada, Australia, New Zealand, and the United States were criticized for their reluctance to acknowledge the rights and land claims of Indigenous Peoples.",
+          "reason": "The context mentions ongoing challenges and debates but does not specifically state that these governments were criticized, making this statement unverifiable.",
+          "verdict": 0
+        },
+        {
+          "statement": "The reluctance of these governments hindered the inclusion of Indigenous lands as protected areas in the conference's agreements.",
+          "reason": "The context discusses the failure to recognize Indigenous lands but does not explicitly link this to the reluctance of specific governments hindering inclusion, making this statement unverifiable.",
+          "verdict": 0
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample": {
+        "question": "Who has the right to be fully informed about human rights violations, including the identities of the perpetrators and the fate of the victims?",
+        "answer": "Everyone has the right to be fully informed about human rights violations, including the identities of the perpetrators and the fate of the victims. This right is recognized by various international human rights instruments, such as the Universal Declaration of Human Rights and the International Covenant on Civil and Political Rights.\n\nThe victims of human rights violations and their families have a particular right to know the truth about what happened to them. This includes knowing the identities of the perpetrators and the fate of the victims, such as whether they are alive or dead, and if dead, the circumstances of their death.\n\nFurthermore, society as a whole has a right to be informed about human rights violations. This is essential for holding perpetrators accountable, preventing future abuses, and ensuring justice and reparations for the victims. Access to information about human rights violations also allows for public scrutiny and debate, which are crucial for building a culture of human rights and promoting transparency and accountability.\n\nJournalists, human rights defenders, and civil society organizations play a vital role in investigating and reporting on human rights violations. They have the right to access information, conduct independent investigations, and disseminate their findings to the public. Governments have a responsibility to protect and facilitate these activities, ensuring that individuals and organizations can operate freely and without fear of reprisals.\n\nIn summary, the right to be fully informed about human rights violations, including the identities of the perpetrators and the fate of the victims, belongs to everyone. It is a fundamental aspect of promoting human rights, accountability, and justice.",
+        "contexts": "In many cases, the identities of perpetrators of human rights violations are shielded from public knowledge, either due to political reasons or lack of evidence. This lack of transparency can hinder efforts to seek justice for victims and hold those responsible accountable for their actions. The right to know the fate of victims is equally important, as it allows families and communities to grieve, seek closure, and work towards healing and reconciliation.\n- The victims of gross human rights violations and their families, as well as members of society generally, have the right to know the whole truth about past human rights violations.\n- The right to truth is engaged by the violation of the rights to access to justice, remedy, and information.\n- Victims and their families possess an inalienable and non-derogable right to know the truth regarding the circumstances and reasons behind human rights violations, including the identities of the perpetrators and the fate of the victims.\n- The right to know the fate and whereabouts of 'disappeared' relatives has been confirmed in the jurisprudence of international and regional human rights bodies, as well as of national courts.\nThe concept of universal human rights has evolved over centuries, with various international declarations and treaties outlining the fundamental rights that all individuals are entitled to. These rights are considered inherent to all human beings, regardless of nationality, ethnicity, or any other distinguishing factor. The idea that everyone should be fully informed about human rights violations stems from the belief that transparency and accountability are essential for upholding these rights and preventing future abuses."
+      },
+      "faithfulness_score": 0.9642857142857143,
+      "reasoning": "Faithful statements: 27/28",
+      "statements": [
+        "Everyone has the right to be fully informed about human rights violations.",
+        "The right to be informed includes knowledge of the identities of the perpetrators and the fate of the victims.",
+        "Various international human rights instruments recognize this right.",
+        "The Universal Declaration of Human Rights and the International Covenant on Civil and Political Rights are examples of these instruments.",
+        "Victims of human rights violations have a particular right to know the truth about what happened to them.",
+        "Families of victims also have the right to know the truth about what happened to their loved ones.",
+        "Knowing the identities of the perpetrators and the fate of the victims is included in this right.",
+        "The fate of the victims includes knowledge of whether victims are alive or dead.",
+        "If victims are dead, the circumstances of their death should be known.",
+        "Society as a whole has a right to be informed about human rights violations.",
+        "Being informed is essential for holding perpetrators accountable.",
+        "Being informed helps prevent future abuses.",
+        "Being informed ensures justice and reparations for the victims.",
+        "Access to information about human rights violations allows for public scrutiny and debate.",
+        "Public scrutiny and debate are crucial for building a culture of human rights.",
+        "Public scrutiny and debate promote transparency and accountability.",
+        "Journalists play a vital role in investigating and reporting on human rights violations.",
+        "Human rights defenders play a vital role in investigating and reporting on human rights violations.",
+        "Civil society organizations play a vital role in investigating and reporting on human rights violations.",
+        "Journalists, human rights defenders, and civil society organizations have the right to access information.",
+        "These individuals and organizations have the right to conduct independent investigations.",
+        "These individuals and organizations have the right to disseminate their findings to the public.",
+        "Governments have a responsibility to protect and facilitate the activities of journalists, human rights defenders, and civil society organizations.",
+        "Governments must ensure that individuals and organizations can operate freely and without fear of reprisals.",
+        "The right to be fully informed about human rights violations belongs to everyone.",
+        "The right to be fully informed is a fundamental aspect of promoting human rights.",
+        "The right to be fully informed is a fundamental aspect of promoting accountability.",
+        "The right to be fully informed is a fundamental aspect of promoting justice."
+      ],
+      "verdicts": [
+        {
+          "statement": "Everyone has the right to be fully informed about human rights violations.",
+          "reason": "The context states that the right to know the truth about past human rights violations is a fundamental right, implying that everyone has this right.",
+          "verdict": 1
+        },
+        {
+          "statement": "The right to be informed includes knowledge of the identities of the perpetrators and the fate of the victims.",
+          "reason": "The context explicitly mentions that victims and their families have the right to know the identities of the perpetrators and the fate of the victims.",
+          "verdict": 1
+        },
+        {
+          "statement": "Various international human rights instruments recognize this right.",
+          "reason": "The context discusses the evolution of universal human rights and mentions international declarations and treaties, implying recognition of the right to be informed.",
+          "verdict": 1
+        },
+        {
+          "statement": "The Universal Declaration of Human Rights and the International Covenant on Civil and Political Rights are examples of these instruments.",
+          "reason": "The context mentions various international declarations and treaties but does not specifically name the Universal Declaration of Human Rights or the International Covenant on Civil and Political Rights, so this cannot be directly inferred.",
+          "verdict": 0
+        },
+        {
+          "statement": "Victims of human rights violations have a particular right to know the truth about what happened to them.",
+          "reason": "The context states that victims possess an inalienable right to know the truth regarding human rights violations, confirming this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Families of victims also have the right to know the truth about what happened to their loved ones.",
+          "reason": "The context mentions that families have the right to know the fate of victims, which includes knowing the truth about what happened to them.",
+          "verdict": 1
+        },
+        {
+          "statement": "Knowing the identities of the perpetrators and the fate of the victims is included in this right.",
+          "reason": "The context explicitly states that the right to know includes the identities of perpetrators and the fate of victims, confirming this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The fate of the victims includes knowledge of whether victims are alive or dead.",
+          "reason": "The context implies that knowing the fate of victims includes understanding their status, whether alive or dead, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "If victims are dead, the circumstances of their death should be known.",
+          "reason": "The context emphasizes the right to know the truth about human rights violations, which includes circumstances surrounding deaths, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Society as a whole has a right to be informed about human rights violations.",
+          "reason": "The context discusses the right to know as a societal issue, implying that society has a right to be informed about human rights violations.",
+          "verdict": 1
+        },
+        {
+          "statement": "Being informed is essential for holding perpetrators accountable.",
+          "reason": "The context states that transparency and accountability are essential for upholding human rights, implying that being informed is crucial for accountability.",
+          "verdict": 1
+        },
+        {
+          "statement": "Being informed helps prevent future abuses.",
+          "reason": "The context mentions that transparency is essential for preventing future abuses, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Being informed ensures justice and reparations for the victims.",
+          "reason": "The context implies that being informed is part of the process of seeking justice and reparations, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Access to information about human rights violations allows for public scrutiny and debate.",
+          "reason": "The context discusses the importance of transparency and public knowledge, which supports this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Public scrutiny and debate are crucial for building a culture of human rights.",
+          "reason": "The context implies that public scrutiny and debate are important for upholding human rights, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Public scrutiny and debate promote transparency and accountability.",
+          "reason": "The context emphasizes the importance of transparency and accountability, which supports this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Journalists play a vital role in investigating and reporting on human rights violations.",
+          "reason": "The context implies the role of journalists in promoting transparency and accountability, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Human rights defenders play a vital role in investigating and reporting on human rights violations.",
+          "reason": "The context implies the role of human rights defenders in promoting transparency and accountability, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Civil society organizations play a vital role in investigating and reporting on human rights violations.",
+          "reason": "The context implies the role of civil society organizations in promoting transparency and accountability, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Journalists, human rights defenders, and civil society organizations have the right to access information.",
+          "reason": "The context implies that these groups have the right to access information to fulfill their roles, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "These individuals and organizations have the right to conduct independent investigations.",
+          "reason": "The context implies that these groups have the right to investigate independently, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "These individuals and organizations have the right to disseminate their findings to the public.",
+          "reason": "The context implies that these groups have the right to share their findings, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Governments have a responsibility to protect and facilitate the activities of journalists, human rights defenders, and civil society organizations.",
+          "reason": "The context implies that governments should support these activities to promote transparency and accountability, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Governments must ensure that individuals and organizations can operate freely and without fear of reprisals.",
+          "reason": "The context implies that governments have a duty to protect the rights of individuals and organizations, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The right to be fully informed about human rights violations belongs to everyone.",
+          "reason": "The context states that the right to know the truth is fundamental and applies to all, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The right to be fully informed is a fundamental aspect of promoting human rights.",
+          "reason": "The context emphasizes the importance of being informed for upholding human rights, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The right to be fully informed is a fundamental aspect of promoting accountability.",
+          "reason": "The context emphasizes the importance of transparency for accountability, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The right to be fully informed is a fundamental aspect of promoting justice.",
+          "reason": "The context implies that being informed is essential for justice, thus supporting this statement.",
+          "verdict": 1
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample": {
+        "question": "Where was COP15 held in 2022?",
+        "answer": "COP15 was held in Kunming, China in 2022.",
+        "contexts": "The city of Kunming, located in the Yunnan province of China, is known for its stunning natural landscapes and diverse ecosystems. It served as the perfect backdrop for COP15, allowing delegates to immerse themselves in the beauty of nature while discussing crucial environmental issues.\n- These include the agreement known as 30x30, adopted at the UN Conference on Biological Diversity (COP15) held in Montreal, Canada, in late 2022.\n- Unfortunately, at COP15, States failed to explicitly recognize Indigenous Peoples' lands and territories as a distinct category of protected area, and this threatens their rights.\nCOP15, also known as the 15th meeting of the Conference of the Parties to the Convention on Biological Diversity, was held in Kunming, China in 2022. The conference aimed to address the global biodiversity crisis and set ambitious targets for conservation and sustainable development."
+      },
+      "faithfulness_score": 1.0,
+      "reasoning": "Faithful statements: 1/1",
+      "statements": [
+        "COP15 took place in Kunming, China in 2022."
+      ],
+      "verdicts": [
+        {
+          "statement": "COP15 took place in Kunming, China in 2022.",
+          "reason": "The context explicitly states that COP15 was held in Kunming, China in 2022.",
+          "verdict": 1
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample": {
+        "question": "What factors have contributed to the decline of independent civil society organizations in Nicaragua?",
+        "answer": "There are several factors that have contributed to the decline of independent civil society organizations in Nicaragua:\n\n1. Repressive government policies: The Nicaraguan government, under President Daniel Ortega, has implemented a series of repressive policies that have targeted civil society organizations. These policies include restrictive laws, such as the Foreign Agents Law, which requires organizations receiving foreign funding to register as \"foreign agents\" and submit detailed financial reports. This has created a climate of fear and uncertainty for many organizations, leading to self-censorship and a decline in their activities.\n\n2. Harassment and intimidation: Civil society organizations in Nicaragua have faced harassment and intimidation from government authorities, including surveillance, arbitrary arrests, and physical attacks. Human rights defenders and activists have been particularly targeted, with many facing threats to their personal safety and the safety of their families. This has made it difficult for organizations to operate freely and has deterred many individuals from getting involved in civil society work.\n\n3. Lack of funding: The repressive policies and climate of fear have also made it difficult for civil society organizations to secure funding. Many international donors have been reluctant to support organizations in Nicaragua due to concerns about the government's crackdown on civil society. This has led to a decline in resources available for organizations to carry out their work, including advocacy, research, and service provision.\n\n4. Legal restrictions: The Nicaraguan government has implemented a series of legal restrictions that have made it difficult for civil society organizations to operate. These include laws that limit freedom of association, freedom of expression, and the right to peaceful assembly. Organizations that are critical of the government or engage in activities deemed \"political\" have faced increased scrutiny and legal challenges, further limiting their ability to operate independently.\n\n5. Polarization and division: The political situation in Nicaragua has become increasingly polarized, with the government cracking down on dissent and opposition voices. This has created a climate of fear and mistrust, making it difficult for civil society organizations to collaborate and coordinate their efforts. The lack of unity and solidarity among civil society actors has weakened their collective impact and made it easier for the government to suppress their activities.\n\nOverall, the decline of independent civil society organizations in Nicaragua can be attributed to a combination of repressive government policies, harassment and intimidation, lack of funding, legal restrictions, and polarization. These factors have created a hostile environment for civil society, leading to a decline in their numbers and activities.",
+        "contexts": "The economic challenges facing Nicaragua have also played a role in the decline of independent civil society organizations. Limited funding opportunities, coupled with a shrinking space for civic engagement, have made it difficult for these organizations to sustain their operations and carry out their missions effectively.\n- \"arrests and harassment of human rights defenders, restrictive NGO laws and violent repression of protests have been decimating independent civil society organizations for years.\"\n- \"The closure of civil society organizations and our rural community centers, which for more than 40 years have worked in defense of SRR and human rights in general.\"\n- \"The expropriation of their belongings and premises.\"\n- \"The criminalization of social organizing and mobilization and of freedom of expression.\"\n- \"The implementation of repressive laws that breach the human rights of the population to suit the wishes of the regime.\"\n- \"The constant threats of arrest and detention of those who protest and the restrictions on social media.\"\n- \"The silence imposed through violence and repression.\"\n- \"As a result, the activities of our feminist community organization are severely limited right now.\"\nNicaragua's political landscape has undergone significant changes in recent years, leading to increased government control and restrictions on independent civil society organizations. The government's crackdown on dissent and opposition has resulted in the closure of many NGOs and civil society groups, limiting their ability to operate freely and advocate for social change."
+      },
+      "faithfulness_score": 0.896551724137931,
+      "reasoning": "Faithful statements: 26/29",
+      "statements": [
+        "Several factors have contributed to the decline of independent civil society organizations in Nicaragua.",
+        "Repressive government policies have targeted civil society organizations in Nicaragua.",
+        "The Nicaraguan government, under President Daniel Ortega, has implemented a series of repressive policies.",
+        "Restrictive laws, such as the Foreign Agents Law, require organizations receiving foreign funding to register as 'foreign agents' and submit detailed financial reports.",
+        "The implementation of these policies has created a climate of fear and uncertainty for many organizations.",
+        "This climate of fear has led to self-censorship and a decline in the activities of civil society organizations.",
+        "Civil society organizations in Nicaragua have faced harassment and intimidation from government authorities.",
+        "Harassment includes surveillance, arbitrary arrests, and physical attacks.",
+        "Human rights defenders and activists have been particularly targeted by government authorities.",
+        "Many human rights defenders and activists face threats to personal safety and the safety of their families.",
+        "The threats to safety have made it difficult for organizations to operate freely.",
+        "The threats have deterred many individuals from getting involved in civil society work.",
+        "The repressive policies and climate of fear have made it difficult for civil society organizations to secure funding.",
+        "Many international donors have been reluctant to support organizations in Nicaragua due to concerns about the government's crackdown on civil society.",
+        "The reluctance of international donors has led to a decline in resources available for organizations to carry out their work.",
+        "The decline in resources affects advocacy, research, and service provision by organizations.",
+        "The Nicaraguan government has implemented a series of legal restrictions that have made it difficult for civil society organizations to operate.",
+        "Legal restrictions include laws that limit freedom of association, freedom of expression, and the right to peaceful assembly.",
+        "Organizations that are critical of the government or engage in activities deemed 'political' have faced increased scrutiny and legal challenges.",
+        "Increased scrutiny and legal challenges further limit the ability of organizations to operate independently.",
+        "The political situation in Nicaragua has become increasingly polarized.",
+        "The government has cracked down on dissent and opposition voices.",
+        "The crackdown on dissent has created a climate of fear and mistrust.",
+        "The climate of fear and mistrust makes it difficult for civil society organizations to collaborate and coordinate efforts.",
+        "The lack of unity and solidarity among civil society actors has weakened their collective impact.",
+        "The weakened collective impact has made it easier for the government to suppress the activities of civil society organizations.",
+        "The decline of independent civil society organizations in Nicaragua can be attributed to a combination of repressive government policies, harassment and intimidation, lack of funding, legal restrictions, and polarization.",
+        "These factors have created a hostile environment for civil society organizations.",
+        "The hostile environment has led to a decline in the numbers and activities of civil society organizations."
+      ],
+      "verdicts": [
+        {
+          "statement": "Several factors have contributed to the decline of independent civil society organizations in Nicaragua.",
+          "reason": "The context mentions multiple reasons for the decline, including limited funding, government repression, and legal restrictions, which supports this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Repressive government policies have targeted civil society organizations in Nicaragua.",
+          "reason": "The context explicitly states that the government's crackdown has targeted civil society organizations, making this statement directly supported by the context.",
+          "verdict": 1
+        },
+        {
+          "statement": "The Nicaraguan government, under President Daniel Ortega, has implemented a series of repressive policies.",
+          "reason": "The context discusses the government's actions and policies that have led to repression, which can be inferred to be under President Daniel Ortega's regime, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Restrictive laws, such as the Foreign Agents Law, require organizations receiving foreign funding to register as 'foreign agents' and submit detailed financial reports.",
+          "reason": "The context does not mention the Foreign Agents Law specifically, so this statement cannot be directly inferred from the provided information.",
+          "verdict": 0
+        },
+        {
+          "statement": "The implementation of these policies has created a climate of fear and uncertainty for many organizations.",
+          "reason": "The context describes a climate of fear resulting from government actions, which supports this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "This climate of fear has led to self-censorship and a decline in the activities of civil society organizations.",
+          "reason": "The context implies that the climate of fear has negatively impacted civil society organizations, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Civil society organizations in Nicaragua have faced harassment and intimidation from government authorities.",
+          "reason": "The context explicitly mentions harassment and repression faced by civil society organizations, making this statement directly supported.",
+          "verdict": 1
+        },
+        {
+          "statement": "Harassment includes surveillance, arbitrary arrests, and physical attacks.",
+          "reason": "While the context mentions harassment, it does not specify the forms it takes, so this statement cannot be directly inferred.",
+          "verdict": 0
+        },
+        {
+          "statement": "Human rights defenders and activists have been particularly targeted by government authorities.",
+          "reason": "The context discusses the targeting of human rights defenders, which supports this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Many human rights defenders and activists face threats to personal safety and the safety of their families.",
+          "reason": "The context implies threats to human rights defenders, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The threats to safety have made it difficult for organizations to operate freely.",
+          "reason": "The context indicates that threats have limited the operations of organizations, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The threats have deterred many individuals from getting involved in civil society work.",
+          "reason": "The context suggests that the climate of fear has deterred involvement in civil society, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The repressive policies and climate of fear have made it difficult for civil society organizations to secure funding.",
+          "reason": "The context discusses funding challenges due to repression, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Many international donors have been reluctant to support organizations in Nicaragua due to concerns about the government's crackdown on civil society.",
+          "reason": "The context implies that international donors are hesitant to provide support due to the government's actions, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The reluctance of international donors has led to a decline in resources available for organizations to carry out their work.",
+          "reason": "The context indicates that funding has declined due to donor reluctance, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The decline in resources affects advocacy, research, and service provision by organizations.",
+          "reason": "The context implies that resource decline impacts organizational activities, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The Nicaraguan government has implemented a series of legal restrictions that have made it difficult for civil society organizations to operate.",
+          "reason": "The context mentions legal restrictions affecting civil society organizations, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Legal restrictions include laws that limit freedom of association, freedom of expression, and the right to peaceful assembly.",
+          "reason": "The context discusses legal restrictions but does not specify these particular laws, so this statement cannot be directly inferred.",
+          "verdict": 0
+        },
+        {
+          "statement": "Organizations that are critical of the government or engage in activities deemed 'political' have faced increased scrutiny and legal challenges.",
+          "reason": "The context implies that critical organizations face scrutiny, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Increased scrutiny and legal challenges further limit the ability of organizations to operate independently.",
+          "reason": "The context suggests that scrutiny and legal challenges hinder operations, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The political situation in Nicaragua has become increasingly polarized.",
+          "reason": "The context mentions a polarized political situation, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The government has cracked down on dissent and opposition voices.",
+          "reason": "The context explicitly states that the government has cracked down on dissent, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The crackdown on dissent has created a climate of fear and mistrust.",
+          "reason": "The context indicates that the crackdown has led to fear, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The climate of fear and mistrust makes it difficult for civil society organizations to collaborate and coordinate efforts.",
+          "reason": "The context implies that fear affects collaboration, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The lack of unity and solidarity among civil society actors has weakened their collective impact.",
+          "reason": "The context suggests that fear has led to a lack of unity, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The weakened collective impact has made it easier for the government to suppress the activities of civil society organizations.",
+          "reason": "The context implies that weakened impact aids government suppression, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The decline of independent civil society organizations in Nicaragua can be attributed to a combination of repressive government policies, harassment and intimidation, lack of funding, legal restrictions, and polarization.",
+          "reason": "The context summarizes the decline as a result of these factors, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "These factors have created a hostile environment for civil society organizations.",
+          "reason": "The context indicates that the mentioned factors contribute to a hostile environment, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The hostile environment has led to a decline in the numbers and activities of civil society organizations.",
+          "reason": "The context discusses the decline in activities due to the hostile environment, supporting this statement.",
+          "verdict": 1
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample": {
+        "question": "Which right guarantees access to comprehensive information about past human rights violations, including the identities of the perpetrators and the fate of the victims, as well as the circumstances surrounding the violations?",
+        "answer": "The right that guarantees access to comprehensive information about past human rights violations, including the identities of the perpetrators and the fate of the victims, as well as the circumstances surrounding the violations, is the right to truth.",
+        "contexts": "The right to truth is a fundamental human right that seeks to uncover the full extent of past human rights violations and ensure accountability for those responsible. This right includes access to official records, archives, and other sources of information that shed light on historical injustices and atrocities.\nIn many countries, the pursuit of truth and justice for past human rights violations is a complex and often contentious process. Governments, institutions, and individuals may resist efforts to uncover the truth, leading to challenges in achieving transparency and accountability. The right to truth is essential for promoting reconciliation, healing, and preventing future abuses.\n26. The Act raises serious questions about its compatibility with the right to truth.\n27. At an individual level, victims and their families possess an inalienable and non-derogable right to know the truth regarding the circumstances and reasons behind human rights violations, including the identities of the perpetrators and, in cases of death or enforced disappearance, the fate of the victims.\nIn particular, the right to know the fate and whereabouts of \u2018disappeared\u2019 relatives has been confirmed in the jurisprudence of international and regional human rights bodies, as well as of national courts."
+      },
+      "faithfulness_score": 0.8,
+      "reasoning": "Faithful statements: 4/5",
+      "statements": [
+        "The right guarantees access to comprehensive information about past human rights violations.",
+        "The right includes the identities of the perpetrators.",
+        "The right includes the fate of the victims.",
+        "The right includes the circumstances surrounding the violations.",
+        "The right to truth is the right that guarantees access to this information."
+      ],
+      "verdicts": [
+        {
+          "statement": "The right guarantees access to comprehensive information about past human rights violations.",
+          "reason": "The context states that the right to truth includes access to official records and other sources of information about past human rights violations, which implies access to comprehensive information, thus the statement can be inferred.",
+          "verdict": 1
+        },
+        {
+          "statement": "The right includes the identities of the perpetrators.",
+          "reason": "The context explicitly mentions that victims and their families have the right to know the identities of the perpetrators, making this statement directly inferable.",
+          "verdict": 1
+        },
+        {
+          "statement": "The right includes the fate of the victims.",
+          "reason": "The context states that victims and their families have the right to know the fate of the victims, which directly supports this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The right includes the circumstances surrounding the violations.",
+          "reason": "While the context discusses the right to know about human rights violations, it does not explicitly mention the right to know the circumstances surrounding those violations, making this statement not directly inferable.",
+          "verdict": 0
+        },
+        {
+          "statement": "The right to truth is the right that guarantees access to this information.",
+          "reason": "The context defines the right to truth as encompassing access to information about past human rights violations, thus this statement can be inferred as true.",
+          "verdict": 1
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample": {
+        "question": "When did the government of Qatar start repealing restrictions on migrant workers?",
+        "answer": "The government of Qatar started repealing restrictions on migrant workers in 2017.",
+        "contexts": "Qatar's efforts to improve the rights and working conditions of migrant workers have been widely praised by international organizations and human rights advocates. The government's decision to gradually repeal restrictions and implement reforms has been seen as a positive step towards addressing long-standing issues in the country's labor system.\nBetween 2018 and 2020, the government took important steps towards tackling two central pillars of this system by repealing for most migrant workers the requirement to obtain from their employer an 'exit permit\u2019 to leave the country, and a \u2018no -objection certificate\u2019 (NOC) to change jobs.\nOther barriers to workers changing jobs freely have emerged over the last few years, limiting the impact of the reforms and maintaining the status quo.\nThese include the unwritten \u2013 but often spoken \u2013 need for workers to secure \u201crelease papers\u201d, a resignation letter, or any equivalent of an NOC, from their current employers in order to successfully move jobs.\nThe changes in Qatar's labor laws have also been linked to the country's preparations for hosting the FIFA World Cup in 2022. The government's commitment to ensuring fair treatment and protection for migrant workers has been a key focus in the lead-up to the tournament, with various initiatives and policies being introduced to uphold these principles."
+      },
+      "faithfulness_score": 0.0,
+      "reasoning": "Faithful statements: 0/1",
+      "statements": [
+        "The government of Qatar started repealing restrictions on migrant workers in 2017."
+      ],
+      "verdicts": [
+        {
+          "statement": "The government of Qatar started repealing restrictions on migrant workers in 2017.",
+          "reason": "The context specifies that important steps were taken between 2018 and 2020, indicating that the repeal of restrictions began in 2018, not 2017.",
+          "verdict": 0
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample": {
+        "question": "What action did Amnesty International urge its supporters to take in response to the killing of the Ogoni 9?",
+        "answer": "Amnesty International urged its supporters to write letters to the Nigerian government, calling for an independent investigation into the killings of the Ogoni 9 and for those responsible to be brought to justice. They also called for an end to the human rights abuses in the Niger Delta region and for the protection of the rights of the Ogoni people.",
+        "contexts": "In the case of the Ogoni 9, Amnesty International called on its supporters to take action by signing petitions, writing letters to government officials, and participating in protests and demonstrations. The organization also urged its members to raise awareness about the plight of the Ogoni people and the need for justice and accountability in their case. By mobilizing public pressure and solidarity, Amnesty International hoped to bring attention to the human rights abuses committed against the Ogoni 9 and to push for meaningful change and accountability.\nAmnesty International called on its vast network of supporters to deluge Nigerian authorities first with appeals for the defenders\u2019 freedom, and later with letters of outrage.\nAmnesty International is a global human rights organization known for its advocacy work on behalf of individuals facing injustice and persecution. The organization has a long history of campaigning for the rights of prisoners of conscience, political dissidents, and marginalized communities around the world. Through its research, lobbying efforts, and grassroots activism, Amnesty International seeks to hold governments and other powerful entities accountable for human rights violations and abuses."
+      },
+      "faithfulness_score": 0.2,
+      "reasoning": "Faithful statements: 1/5",
+      "statements": [
+        "Amnesty International urged supporters to write letters to the Nigerian government.",
+        "Amnesty International called for an independent investigation into the killings of the Ogoni 9.",
+        "Amnesty International called for those responsible for the killings to be brought to justice.",
+        "Amnesty International called for an end to the human rights abuses in the Niger Delta region.",
+        "Amnesty International called for the protection of the rights of the Ogoni people."
+      ],
+      "verdicts": [
+        {
+          "statement": "Amnesty International urged supporters to write letters to the Nigerian government.",
+          "reason": "The context explicitly states that Amnesty International called on its supporters to write letters to government officials, which includes the Nigerian government.",
+          "verdict": 1
+        },
+        {
+          "statement": "Amnesty International called for an independent investigation into the killings of the Ogoni 9.",
+          "reason": "The context does not mention anything about an independent investigation into the killings of the Ogoni 9, only that they called for action and awareness.",
+          "verdict": 0
+        },
+        {
+          "statement": "Amnesty International called for those responsible for the killings to be brought to justice.",
+          "reason": "While the context discusses the need for justice and accountability, it does not specifically state that Amnesty International called for those responsible for the killings to be brought to justice.",
+          "verdict": 0
+        },
+        {
+          "statement": "Amnesty International called for an end to the human rights abuses in the Niger Delta region.",
+          "reason": "The context mentions human rights abuses committed against the Ogoni 9 but does not specifically state that Amnesty International called for an end to abuses in the broader Niger Delta region.",
+          "verdict": 0
+        },
+        {
+          "statement": "Amnesty International called for the protection of the rights of the Ogoni people.",
+          "reason": "The context discusses raising awareness about the plight of the Ogoni people but does not explicitly state that Amnesty International called for the protection of their rights.",
+          "verdict": 0
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample": {
+        "question": "What are the global implications of the USA Supreme Court ruling on abortion?",
+        "answer": "The global implications of the USA Supreme Court ruling on abortion can be significant, as it sets a precedent for other countries and influences the global discourse on reproductive rights. Here are some potential implications:\n\n1. Influence on other countries: The Supreme Court's ruling can serve as a reference point for other countries grappling with their own abortion laws. It can provide legal arguments and reasoning that advocates for reproductive rights can use to challenge restrictive abortion laws in their respective jurisdictions.\n\n2. Strengthening of global reproductive rights movements: A favorable ruling by the Supreme Court can energize and empower reproductive rights movements worldwide. It can serve as a rallying point for activists and organizations advocating for women's rights, leading to increased mobilization and advocacy efforts globally.\n\n3. Counteracting anti-abortion movements: Conversely, a ruling that restricts abortion rights can embolden anti-abortion movements globally. It can provide legitimacy to their arguments and encourage similar restrictive measures in other countries, potentially leading to a rollback of existing reproductive rights.\n\n4. Impact on international aid and policies: The Supreme Court's ruling can influence international aid and policies related to reproductive health. It can shape the priorities and funding decisions of donor countries and organizations, potentially leading to increased support for reproductive rights initiatives or conversely, restrictions on funding for abortion-related services.\n\n5. Shaping international human rights standards: The ruling can contribute to the development of international human rights standards regarding reproductive rights. It can influence the interpretation and application of existing human rights treaties and conventions, potentially strengthening the recognition of reproductive rights as fundamental human rights globally.\n\n6. Global health implications: The Supreme Court's ruling can have implications for global health outcomes, particularly in countries with restrictive abortion laws. It can impact the availability and accessibility of safe and legal abortion services, potentially leading to an increase in unsafe abortions and related health complications.\n\nIt is important to note that the specific implications will depend on the nature of the Supreme Court ruling and the subsequent actions taken by governments, activists, and organizations both within and outside the United States.",
+        "contexts": "- In 2022, the USA Supreme Court handed down a decision ruling that overturned 50 years of jurisprudence recognizing a constitutional right to abortion.\n- This decision has had a massive impact: one in three women and girls of reproductive age now live in states where abortion access is either totally or near-totally inaccessible.\n- The states with the most restrictive abortion laws have the weakest maternal health support, higher maternal death rates, and higher child poverty rates.\n- The USA Supreme Court ruling has also had impacts beyond national borders due to the geopolitical and cultural influence wielded by the USA globally and the aid it funds.\n- SRR organizations and activists across the world have expressed fear about the ruling laying the groundwork for anti-abortion legislative and policy attacks in other countries.\n- Advocates have also observed the ruling's impact on progressive law reform and the stalling of the adoption and enforcement of abortion guidelines in certain African countries.\n- The ruling has created a chilling effect in international policy spaces, emboldening anti-abortion state and non-state actors to undermine human rights protections.\nThe USA Supreme Court ruling on abortion has sparked intense debates and discussions not only within the country but also around the world. Many countries look to the United States as a leader in legal and social issues, so the decision could potentially influence the policies and attitudes towards abortion in other nations.\nThe ruling may also impact international organizations and non-governmental groups that work on reproductive rights and women's health issues. Depending on the outcome, there could be shifts in funding, advocacy efforts, and collaborations with American counterparts, leading to ripple effects in the global fight for reproductive justice."
+      },
+      "faithfulness_score": 0.9130434782608695,
+      "reasoning": "Faithful statements: 21/23",
+      "statements": [
+        "The global implications of the USA Supreme Court ruling on abortion can be significant.",
+        "The ruling sets a precedent for other countries.",
+        "The ruling influences the global discourse on reproductive rights.",
+        "The Supreme Court's ruling can serve as a reference point for other countries grappling with their own abortion laws.",
+        "The ruling can provide legal arguments and reasoning that advocates for reproductive rights can use to challenge restrictive abortion laws in their respective jurisdictions.",
+        "A favorable ruling by the Supreme Court can energize and empower reproductive rights movements worldwide.",
+        "The ruling can serve as a rallying point for activists and organizations advocating for women's rights.",
+        "The ruling can lead to increased mobilization and advocacy efforts globally.",
+        "A ruling that restricts abortion rights can embolden anti-abortion movements globally.",
+        "The ruling can provide legitimacy to the arguments of anti-abortion movements.",
+        "The ruling can encourage similar restrictive measures in other countries.",
+        "The ruling can potentially lead to a rollback of existing reproductive rights.",
+        "The Supreme Court's ruling can influence international aid and policies related to reproductive health.",
+        "The ruling can shape the priorities and funding decisions of donor countries and organizations.",
+        "The ruling can potentially lead to increased support for reproductive rights initiatives.",
+        "The ruling can conversely lead to restrictions on funding for abortion-related services.",
+        "The ruling can contribute to the development of international human rights standards regarding reproductive rights.",
+        "The ruling can influence the interpretation and application of existing human rights treaties and conventions.",
+        "The ruling can potentially strengthen the recognition of reproductive rights as fundamental human rights globally.",
+        "The Supreme Court's ruling can have implications for global health outcomes, particularly in countries with restrictive abortion laws.",
+        "The ruling can impact the availability and accessibility of safe and legal abortion services.",
+        "The ruling can potentially lead to an increase in unsafe abortions and related health complications.",
+        "The specific implications will depend on the nature of the Supreme Court ruling and the subsequent actions taken by governments, activists, and organizations both within and outside the United States."
+      ],
+      "verdicts": [
+        {
+          "statement": "The global implications of the USA Supreme Court ruling on abortion can be significant.",
+          "reason": "The context discusses the global impact of the ruling, indicating that it can have significant implications worldwide.",
+          "verdict": 1
+        },
+        {
+          "statement": "The ruling sets a precedent for other countries.",
+          "reason": "The context mentions that the ruling could influence policies and attitudes towards abortion in other nations, suggesting it may set a precedent.",
+          "verdict": 1
+        },
+        {
+          "statement": "The ruling influences the global discourse on reproductive rights.",
+          "reason": "The context states that the ruling has sparked intense debates and discussions globally, indicating it influences the discourse on reproductive rights.",
+          "verdict": 1
+        },
+        {
+          "statement": "The Supreme Court's ruling can serve as a reference point for other countries grappling with their own abortion laws.",
+          "reason": "The context implies that many countries look to the USA as a leader in legal issues, suggesting the ruling can serve as a reference point.",
+          "verdict": 1
+        },
+        {
+          "statement": "The ruling can provide legal arguments and reasoning that advocates for reproductive rights can use to challenge restrictive abortion laws in their respective jurisdictions.",
+          "reason": "The context discusses the potential for the ruling to influence advocacy efforts, implying it can provide legal arguments for advocates.",
+          "verdict": 1
+        },
+        {
+          "statement": "A favorable ruling by the Supreme Court can energize and empower reproductive rights movements worldwide.",
+          "reason": "The context does not mention a favorable ruling; it discusses the implications of the ruling that has already occurred, which is restrictive.",
+          "verdict": 0
+        },
+        {
+          "statement": "The ruling can serve as a rallying point for activists and organizations advocating for women's rights.",
+          "reason": "The context discusses the ruling's impact on activism and advocacy, suggesting it can serve as a rallying point for those advocating for women's rights.",
+          "verdict": 1
+        },
+        {
+          "statement": "The ruling can lead to increased mobilization and advocacy efforts globally.",
+          "reason": "The context mentions the chilling effect and the response from activists, indicating that it can lead to mobilization efforts.",
+          "verdict": 1
+        },
+        {
+          "statement": "A ruling that restricts abortion rights can embolden anti-abortion movements globally.",
+          "reason": "The context explicitly states that the ruling has emboldened anti-abortion actors, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The ruling can provide legitimacy to the arguments of anti-abortion movements.",
+          "reason": "The context mentions that the ruling has emboldened anti-abortion movements, suggesting it provides legitimacy to their arguments.",
+          "verdict": 1
+        },
+        {
+          "statement": "The ruling can encourage similar restrictive measures in other countries.",
+          "reason": "The context discusses the fear of the ruling laying groundwork for anti-abortion legislative attacks in other countries, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The ruling can potentially lead to a rollback of existing reproductive rights.",
+          "reason": "The context discusses the potential impacts of the ruling, including the chilling effect on reproductive rights, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The Supreme Court's ruling can influence international aid and policies related to reproductive health.",
+          "reason": "The context mentions potential impacts on international organizations and funding related to reproductive rights, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The ruling can shape the priorities and funding decisions of donor countries and organizations.",
+          "reason": "The context discusses shifts in funding and advocacy efforts, indicating that the ruling can shape priorities and funding decisions.",
+          "verdict": 1
+        },
+        {
+          "statement": "The ruling can potentially lead to increased support for reproductive rights initiatives.",
+          "reason": "The context does not support this statement; it discusses the potential for restrictions rather than increased support for reproductive rights initiatives.",
+          "verdict": 0
+        },
+        {
+          "statement": "The ruling can conversely lead to restrictions on funding for abortion-related services.",
+          "reason": "The context discusses potential shifts in funding and advocacy efforts, indicating that the ruling could lead to restrictions on funding for abortion services.",
+          "verdict": 1
+        },
+        {
+          "statement": "The ruling can contribute to the development of international human rights standards regarding reproductive rights.",
+          "reason": "The context discusses the ruling's implications for human rights protections, suggesting it could contribute to the development of standards.",
+          "verdict": 1
+        },
+        {
+          "statement": "The ruling can influence the interpretation and application of existing human rights treaties and conventions.",
+          "reason": "The context discusses the ruling's impact on human rights protections, indicating it could influence the interpretation of treaties.",
+          "verdict": 1
+        },
+        {
+          "statement": "The ruling can potentially strengthen the recognition of reproductive rights as fundamental human rights globally.",
+          "reason": "The context discusses the implications for human rights, suggesting it could strengthen recognition of reproductive rights.",
+          "verdict": 1
+        },
+        {
+          "statement": "The Supreme Court's ruling can have implications for global health outcomes, particularly in countries with restrictive abortion laws.",
+          "reason": "The context mentions higher maternal death rates and health outcomes related to restrictive laws, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The ruling can impact the availability and accessibility of safe and legal abortion services.",
+          "reason": "The context discusses the impact of the ruling on abortion access, indicating it can affect availability and accessibility.",
+          "verdict": 1
+        },
+        {
+          "statement": "The ruling can potentially lead to an increase in unsafe abortions and related health complications.",
+          "reason": "The context discusses the implications of restricted access to abortion, suggesting it could lead to unsafe abortions and health complications.",
+          "verdict": 1
+        },
+        {
+          "statement": "The specific implications will depend on the nature of the Supreme Court ruling and the subsequent actions taken by governments, activists, and organizations both within and outside the United States.",
+          "reason": "The context discusses the implications of the ruling and the actions of various stakeholders, supporting this statement.",
+          "verdict": 1
+        }
+      ],
+      "success": true
+    }
+  ]
+}

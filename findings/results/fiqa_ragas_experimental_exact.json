@@ -1,0 +1,559 @@
+{
+  "timestamp": "2025-08-03T13:51:11.344251",
+  "dataset": "FIQA",
+  "framework": "ragas_experimental_exact",
+  "metric": "faithfulness",
+  "num_samples": 10,
+  "num_successful": 10,
+  "average_faithfulness": 0.8007142857142856,
+  "scores": [
+    0.5,
+    0.75,
+    0.6666666666666666,
+    0.8571428571428571,
+    1.0,
+    0.8333333333333334,
+    0.9,
+    0.6666666666666666,
+    1.0,
+    0.8333333333333334
+  ],
+  "detailed_results": [
+    {
+      "sample": {
+        "question": "Is it wise to have plenty of current accounts in different banks?",
+        "answer": "\nYes, it is wise to have plenty of current accounts in different banks. This can help to reduce the risk of losing all of your money if one bank fails, as the FDIC insurance limit only applies to each individual bank. Additionally, having multiple accounts can help to protect your money from con men who might try to steal your information and make fraudulent purchases. Finally, having multiple accounts can help you to keep track of your finances and make sure that you are paying your bills on time.",
+        "contexts": "I don't think there's any law against having lots of bank accounts. But what are you really gaining? Every new account is a paperwork hassle. Every new account is another target for con men who might steal your information and write bad checks or make phony credit card purchases in your name. Yes, it's not unreasonable to have a credit card or two that you keep for emergencies. I'd advise anyone with running up debts while having no idea how you will pay them off. But to say that you might keep some credit available so that if you have a legitimate emergency -- like, say, your car breaks down and you don't have the cash to fix it and you can't get to work without it -- you have some a fallback. But do you really need ten credit cards for that sort of thing? And how much credit are they giving you on each card? I don't know how the banks work this, but I'd think if they're rational, they'd consider your total credit before giving you more.  I have three credit cards that I use regularly -- two personal and one business. And I find that a real pain to keep track of, to make sure that I keep each one paid by the due date and to keep a handle on how much I owe and so forth. I can't imagine trying to deal with ten. I suppose you could just stuff all these cards in a drawer and only use them in case of emergency.\"From my experience, payments from banks and other financial entities, such as loyalty programs, generally aren't as large as payments that go the other direction from consumer to bank. Thus, keeping a bank account open simply for some reward/loyalty points may just be changing your behavior for the wrong reasons. The more important scenario is whether or not you have any automated ACH payments or whether your bank account is linked to other services. Perhaps the biggest tell that you're in the clear is when those transactions start occurring from your credit union account.  For example: If you had a direct deposit to your BMO bank account, make sure you see deposits start to appear in the credit union account. If you're making automatic withdraws to an online savings or brokerage account, make sure those transfers are stopped and that you instead see them coming out of your new credit union account. You shouldn't need to move the auto loan, but you will need to make sure you can pay it from the new account.  Some financial advisors, such as in this BankRate article titled, Lenders can tap bank account for mortgage, even recommend keeping liabilities and assets at different locations. If for whatever reason your financial situation turned bleak, it would be more difficult for the bank to help itself to what's in your checking account. To avoid getting nickel and dimed to death by \"\"payment processing fees\"\", I tend to pay insurance bills yearly or semi-annually. Thus, consider if there is anything that may be coming due in the next 6 months. If so, you might want to get your new account hooked up while you still have all the routing numbers and account numbers in your head. It's a pain to dig this stuff up while also rushing to not be late. If all that is in order, close the account.\"Yes. Although I imagine the risk is small, you can remove the risk by splitting your money amongst multiple accounts at different banks so that none of the account totals exceed the FDIC Insurance limit. There are several banks or financial institutions that deposit money in multiple banks to double or triple the effective insurance limit (Fidelity has an account like this, for example)"
+      },
+      "faithfulness_score": 0.5,
+      "reasoning": "Faithful statements: 3/6",
+      "statements": [
+        "It is wise to have plenty of current accounts in different banks.",
+        "Having plenty of current accounts can help to reduce the risk of losing all money if one bank fails.",
+        "The FDIC insurance limit only applies to each individual bank.",
+        "Having multiple accounts can help to protect money from con men who might try to steal information and make fraudulent purchases.",
+        "Having multiple accounts can help to keep track of finances.",
+        "Having multiple accounts can help to ensure that bills are paid on time."
+      ],
+      "verdicts": [
+        {
+          "statement": "It is wise to have plenty of current accounts in different banks.",
+          "reason": "The context suggests that splitting money among multiple accounts can reduce risk, but it does not explicitly state that it is wise to have plenty of accounts. Therefore, this statement cannot be directly inferred.",
+          "verdict": 0
+        },
+        {
+          "statement": "Having plenty of current accounts can help to reduce the risk of losing all money if one bank fails.",
+          "reason": "The context mentions that splitting money among multiple accounts can help avoid exceeding the FDIC insurance limit, which implies a reduction in risk if one bank fails. This statement can be inferred from the context.",
+          "verdict": 1
+        },
+        {
+          "statement": "The FDIC insurance limit only applies to each individual bank.",
+          "reason": "The context discusses the FDIC insurance limit in relation to splitting money among different banks, implying that the limit applies individually to each bank. This statement can be inferred from the context.",
+          "verdict": 1
+        },
+        {
+          "statement": "Having multiple accounts can help to protect money from con men who might try to steal information and make fraudulent purchases.",
+          "reason": "The context mentions that having multiple accounts can be a strategy to avoid risks associated with con men, thus this statement can be inferred.",
+          "verdict": 1
+        },
+        {
+          "statement": "Having multiple accounts can help to keep track of finances.",
+          "reason": "The context discusses the pain of keeping track of multiple credit cards but does not explicitly state that having multiple accounts helps keep track of finances. Therefore, this statement cannot be directly inferred.",
+          "verdict": 0
+        },
+        {
+          "statement": "Having multiple accounts can help to ensure that bills are paid on time.",
+          "reason": "The context mentions the importance of ensuring bills are paid and suggests setting up new accounts to avoid late payments, but it does not directly state that having multiple accounts ensures timely bill payments. Therefore, this statement cannot be directly inferred.",
+          "verdict": 0
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample": {
+        "question": "Privacy preferences on creditworthiness data",
+        "answer": "\nThe best answer to this question is that you can limit the sharing of your creditworthiness data with other banks, insurance companies, and service providers, but you cannot limit the credit reports themselves. You can also use websites such as annualcreditreport.com to look at your credit report and dispute any adverse items. Additionally, you can get credit protection to be notified when new credit is taken in your name.",
+        "contexts": "See the first item in the list: For our everyday business purposes \u2013 such as to process your   transactions, maintain your account(s), respond to court orders and   legal investigations, or report to credit bureaus Note that there's no option for you to limit this sharing. Credit reporting is the business need of the bank, not of the bureaus. They rely on them and others reporting it in their main business: lending. While you can limit the sharing with other banks/insurance companies/service providers so that you won't get offers from them based on the data shared by the bank, you cannot limit the credit reports themselves.\"I don't know that this can actually be answered objectively.  Maybe it can with some serious research.  (Read: data on what the issuers have been doing since the law went into affect.) Personally, I think the weak economy and general problems with easy credit are a bigger issue than the new rules.  Supposedly, there is evidence that card issuers are trying to make up for the lost income due to the new regulations with higher fees.  I believe that your credit rating and history with the issuer is a larger factor now.  In other words, they may be less likely to lower your rate just to keep you as a customer or to attract new customers. According to The Motley Fool, issuers dropped their riskiest customers as a result of the new regulations. Some say that new laws simply motivated the issuers to find new ways to \"\"gouge\"\" their customers. Here are two NYTimes blog posts about the act: http://bucks.blogs.nytimes.com/2010/02/22/what-the-credit-card-act-means-for-you/ http://bucks.blogs.nytimes.com/2010/07/22/the-effects-of-the-credit-card-act/ As JohnFx states, it does not hurt to ask.\"I believe the answer is that to protect yourself it is good to get credit protection so you will be notified when new credit is taken in your name.   Also, you can use http://www.annualcreditreport.com/ to look at your credit report. HINT:  While you do that, and while you are in the TransUnion report, you will have the option to DISPUTE adverse items.   I always suggest that people dispute everything adverse.  That puts the onus on the other parties to produce evidence to TransUnion within 30 days attesting to the validity of the adverse item.   You would be surprised how many will simply drop off your report after doing that.  Everybody should do this Here is a direct address for TransUnion: https://dispute.transunion.com/dp/dispute/landingPage.jsp ==>  Once the disputes are finalized, the results get communicated to the other two bureaus. It is amazing how well it works.  It can raise your credit score significantly. It really helps to watch your credit report yourself, and also to get whatever protection is offered that may help protect you against others opening new accounts in your name."
+      },
+      "faithfulness_score": 0.75,
+      "reasoning": "Faithful statements: 3/4",
+      "statements": [
+        "The best answer to the question is that individuals can limit the sharing of creditworthiness data with other banks, insurance companies, and service providers.",
+        "Individuals cannot limit the credit reports themselves.",
+        "Individuals can use websites such as annualcreditreport.com to look at credit reports and dispute any adverse items.",
+        "Individuals can get credit protection to be notified when new credit is taken in their name."
+      ],
+      "verdicts": [
+        {
+          "statement": "The best answer to the question is that individuals can limit the sharing of creditworthiness data with other banks, insurance companies, and service providers.",
+          "reason": "The context states that individuals can limit sharing with other banks/insurance companies/service providers, but it does not imply that this is the best answer to the question. Therefore, this statement cannot be directly inferred.",
+          "verdict": 0
+        },
+        {
+          "statement": "Individuals cannot limit the credit reports themselves.",
+          "reason": "The context explicitly states that individuals cannot limit the credit reports themselves, making this statement directly inferable.",
+          "verdict": 1
+        },
+        {
+          "statement": "Individuals can use websites such as annualcreditreport.com to look at credit reports and dispute any adverse items.",
+          "reason": "The context mentions using annualcreditreport.com to look at credit reports and the option to dispute adverse items, making this statement directly inferable.",
+          "verdict": 1
+        },
+        {
+          "statement": "Individuals can get credit protection to be notified when new credit is taken in their name.",
+          "reason": "The context states that it is good to get credit protection to be notified when new credit is taken in one's name, making this statement directly inferable.",
+          "verdict": 1
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample": {
+        "question": "Intentions of Deductible Amount for Small Business",
+        "answer": "\nThe intention of deductible amounts for small businesses is to reduce the amount of taxable income. This can be done by deducting certain expenses, such as health insurance premiums, transportation costs, and meals. These deductions can be taken on Schedule C for self-employed individuals, or on Schedule A for those who are not self-employed. Additionally, employers can create Flexible Spending Accounts (FSAs) for their employees, which allow them to contribute pre-tax income to cover certain approved expenses, such as medical and transportation costs.",
+        "contexts": "\"Short answer, yes. But this is not done through the deductions on Schedule A. This can happen if the employer creates a Flexible Spending Account (FSA) for its employees. This can be created for certain approved uses like medical and transportation expenses (a separate account for each category). You can contribute amounts within certain limits to these accounts (e.g. $255 a month for transportation), with pre-tax income, deduct the contributions, and then withdraw these funds to cover your transportation or medical expenses. They work like a (deductible) IRA, except that these are \"\"spending\"\" and not \"\"retirement\"\" accounts. Basically, the employer fulfills the role of \"\"IRA\"\" (FSA, actually) trustee, and does the supporting paperwork.\"Unless the amounts involved are very small, it is MUCH better to incorporate. First, incorporation gives you limited liability for your acts as an employee. As an individual, you have unlimited liability. Second, incorporating allows you to deduct (for tax purposes) the costs of doing business, including all of your health insurance, most transportation, and some meals. The exception to the rule is if the amounts you are earning are so small that they don't cover the cost of incorporating, accounting fees, etc. (a few hundred, or at most a few thousand dollars).While the OP disses the health insurance coverage offered through his wife's employer as a complete rip-off, one advantage of such coverage is that, if set up right (by the employer), the premiums can be paid for through pre-tax dollars instead of post-tax dollars. On the other hand,  Health insurance premiums cannot be deducted on Schedule C by self-employed persons. So the self-employed person has to pay both the employer's share as well as the employee's share of Social Security and Medicare taxes on that money. Health insurance premiums can be deducted on Line 29 of Form 1040 but only for those months during which the Schedule C filer is neither  covered nor eligible to be covered by a subsidized health insurance plan maintained by an employer of the self-employed person (whose self-employment might be a sideline) or the self-employed person's spouse. In other words, just having the plan coverage available through the wife's employment, even though one disdains taking it, is sufficient to make a Line 29 deduction impermissible.  So, AGI is increased. Health insurance premiums can be deducted on Schedule A but only to the extent that they (together with other medical costs) exceed 10% of AGI. For many people in good health, this means no deduction there either. Thus, when comparing the premiums of health insurance policies, one should pay some attention to the tax issues too. Health insurance  through a spouse's employment might not be that bad a deal after all."
+      },
+      "faithfulness_score": 0.6666666666666666,
+      "reasoning": "Faithful statements: 6/9",
+      "statements": [
+        "The intention of deductible amounts for small businesses is to reduce the amount of taxable income.",
+        "Deductible amounts can be achieved by deducting certain expenses.",
+        "Certain expenses include health insurance premiums, transportation costs, and meals.",
+        "Deductions can be taken on Schedule C for self-employed individuals.",
+        "Deductions can be taken on Schedule A for individuals who are not self-employed.",
+        "Employers can create Flexible Spending Accounts (FSAs) for employees.",
+        "Flexible Spending Accounts (FSAs) allow employees to contribute pre-tax income.",
+        "Pre-tax income can be used to cover certain approved expenses.",
+        "Approved expenses include medical and transportation costs."
+      ],
+      "verdicts": [
+        {
+          "statement": "The intention of deductible amounts for small businesses is to reduce the amount of taxable income.",
+          "reason": "The context discusses deductions and their benefits but does not explicitly state that the intention of deductible amounts is to reduce taxable income. Therefore, this cannot be directly inferred.",
+          "verdict": 0
+        },
+        {
+          "statement": "Deductible amounts can be achieved by deducting certain expenses.",
+          "reason": "The context mentions that incorporating allows for deductions of costs, but it does not explicitly state that deductible amounts can be achieved by deducting certain expenses. This is implied but not directly stated.",
+          "verdict": 0
+        },
+        {
+          "statement": "Certain expenses include health insurance premiums, transportation costs, and meals.",
+          "reason": "The context explicitly mentions that health insurance, transportation, and meals can be deducted, making this statement directly inferable.",
+          "verdict": 1
+        },
+        {
+          "statement": "Deductions can be taken on Schedule C for self-employed individuals.",
+          "reason": "The context states that health insurance premiums cannot be deducted on Schedule C by self-employed persons, implying that deductions are not available on Schedule C for them. Therefore, this statement cannot be inferred as true.",
+          "verdict": 0
+        },
+        {
+          "statement": "Deductions can be taken on Schedule A for individuals who are not self-employed.",
+          "reason": "The context states that health insurance premiums can be deducted on Schedule A, which implies that deductions are available for individuals who are not self-employed. This statement can be inferred.",
+          "verdict": 1
+        },
+        {
+          "statement": "Employers can create Flexible Spending Accounts (FSAs) for employees.",
+          "reason": "The context explicitly states that employers can create Flexible Spending Accounts (FSAs) for their employees, making this statement directly inferable.",
+          "verdict": 1
+        },
+        {
+          "statement": "Flexible Spending Accounts (FSAs) allow employees to contribute pre-tax income.",
+          "reason": "The context mentions that employees can contribute amounts within certain limits to FSAs with pre-tax income, making this statement directly inferable.",
+          "verdict": 1
+        },
+        {
+          "statement": "Pre-tax income can be used to cover certain approved expenses.",
+          "reason": "The context states that pre-tax income can be withdrawn to cover approved expenses, making this statement directly inferable.",
+          "verdict": 1
+        },
+        {
+          "statement": "Approved expenses include medical and transportation costs.",
+          "reason": "The context explicitly states that FSAs can be created for approved uses like medical and transportation expenses, making this statement directly inferable.",
+          "verdict": 1
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample": {
+        "question": "Is there a reason to buy a 0% yield bond?",
+        "answer": "\nYes, there is a reason to buy a 0% yield bond. For some individuals, the capital gains tax rate may be more favorable than the income tax rate, and the default risk is still lower than other low-yield products. Additionally, the reinvestment risk is lower due to the short-term nature of the bond. However, it is important to be vigilant and check the health of the issuer, any adverse circumstances, and the overall economy before investing in a 0% yield bond.",
+        "contexts": "No, there isn't. There are a number of reasons that institutions buy these bonds but as an individual you're likely better off in a low-yield cash account. By contrast, there would be a reason to hold a low-yield (non-zero) bond rather than an alternative low-yield product.0% bonds are desirable for some individuals. It depends on your situation. 0% bonds are usually sold well below par value (eg a 100$ face value bond for 2020 might sell for 90$ today) Hence, your gains will be CAPITAL GAINS. A similar investment paying interest would be taxed as INCOME, and smaller portion of capital gains. In many countries (US, Canada) Capital gains are taxed at a more favourable rate then income. This is especially true when holding these investments in corporations.Risk is reduced but isn't zero The default risk is still there, the issuer can go bankrupt, and you can still loose all or some of your money if restructuring happens. If the bond has a callable option, the issuer can retire them  if conditions are favourable for the issuer, you can still loose some of your investment. Callable schedule should be in the bond issuer's prospectus while issuing the bond. If the issuer is in a different country, that brings along a lot of headaches of recovering your money if something goes bad i.e. forex rates can go up and down. YTM, when the bond was bought was greater than risk free rate(govt deposit rates) Has to be greater than the risk free rate, because of the extra risk you are taking. Reinvestment risk is less because of the short term involved(I am assuming 2-3 years at max), but you should also look at the coupon rate of your bond, if it isn't a zero-coupon bond, and how you invest that. would it be ideal to hold the bond till maturity irrespective of price change It always depends on the current conditions. You cannot be sure that everything is fine, so it pays to be vigilant. Check the health of the issuer, any adverse circumstances, and the overall economy as a whole. As you intend to hold till maturity you should be more concerned about the serviceability of the bond by the issuer on maturity and till then."
+      },
+      "faithfulness_score": 0.8571428571428571,
+      "reasoning": "Faithful statements: 6/7",
+      "statements": [
+        "There is a reason to buy a 0% yield bond.",
+        "For some individuals, the capital gains tax rate may be more favorable than the income tax rate.",
+        "The default risk of a 0% yield bond is still lower than the default risk of other low-yield products.",
+        "The reinvestment risk of a 0% yield bond is lower due to the short-term nature of the bond.",
+        "It is important to be vigilant when checking the health of the issuer.",
+        "It is important to check for any adverse circumstances.",
+        "It is important to consider the overall economy before investing in a 0% yield bond."
+      ],
+      "verdicts": [
+        {
+          "statement": "There is a reason to buy a 0% yield bond.",
+          "reason": "The context states that there are reasons institutions buy these bonds, implying that individuals may also have reasons to consider them, thus this statement can be inferred.",
+          "verdict": 1
+        },
+        {
+          "statement": "For some individuals, the capital gains tax rate may be more favorable than the income tax rate.",
+          "reason": "The context explicitly mentions that in many countries, capital gains are taxed at a more favorable rate than income, which supports this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The default risk of a 0% yield bond is still lower than the default risk of other low-yield products.",
+          "reason": "The context states that the default risk is not zero and does not compare the default risk of 0% yield bonds to other low-yield products, making this statement unverifiable.",
+          "verdict": 0
+        },
+        {
+          "statement": "The reinvestment risk of a 0% yield bond is lower due to the short-term nature of the bond.",
+          "reason": "The context mentions that reinvestment risk is less because of the short term involved, which supports this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "It is important to be vigilant when checking the health of the issuer.",
+          "reason": "The context advises to be vigilant and check the health of the issuer, directly supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "It is important to check for any adverse circumstances.",
+          "reason": "The context emphasizes the need to check for adverse circumstances, thus this statement can be inferred.",
+          "verdict": 1
+        },
+        {
+          "statement": "It is important to consider the overall economy before investing in a 0% yield bond.",
+          "reason": "The context mentions considering the overall economy as part of the investment decision, supporting this statement.",
+          "verdict": 1
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample": {
+        "question": "Following an investment guru a good idea?",
+        "answer": "\nNo, following an investment guru is not necessarily a good idea. It is important to do your own research and due diligence before investing in any stock, and not just blindly follow what someone else has done. It is important to understand why they bought the stock and how much they bought, and to think independently and carefully when making any investment decisions.",
+        "contexts": "I think following the professional money managers is a strategy worth considering. The buys from your favorite investors can be taken as strong signals. But you should never buy any stock blindly just because someone else bought it. Be sure do your due diligence before the purchase. The most important question is not what they bought, but why they bought it and how much. To add/comment on Freiheit's points:\"The best answer here is \"\"maybe, but probably not\"\". A few quick reasons: Its not a bad idea to watch other investors especially those who can move markets but do your own research on an investment first. Your sole reason for investing should not be \"\"Warren did it\"\".\"of investing is that you are already somewhat of a \"\"sophisticated investor\"\" and could beat the market by what you know given your background, catching wind of certain information first, or acting on a new trends or technology quickly. Move carefully with any perhaps biased \"\"bullish\"\" or \"\"bearish\"\" mindset. Thinking independently is helpful, constantly becoming familiar with different ideas from professions in a diverse set of backgrounds, and simulating decisions in portfolio's. Here is an extremely limited set of authors and outlets that may have ideas worth digging more into, MIT Tech Reviews (Informative), Bloomberg TV (it's free, informative), John Mackey (businessman), Paul Mason (provocative journalist). Google finance is a simple and free go-to application, use the \"\"cost basis\"\" feature for \"\"paper\"\" or real trades, it's easy to import transactions from a .csv.   This seems sufficient to start off with. Enjoy the journey, aim for real value with your resources.\""
+      },
+      "faithfulness_score": 1.0,
+      "reasoning": "Faithful statements: 5/5",
+      "statements": [
+        "Following an investment guru is not necessarily a good idea.",
+        "It is important to conduct personal research and due diligence before investing in any stock.",
+        "Investors should not blindly follow what someone else has done.",
+        "It is important to understand the reasons behind the stock purchase and the amount purchased.",
+        "Investors should think independently and carefully when making any investment decisions."
+      ],
+      "verdicts": [
+        {
+          "statement": "Following an investment guru is not necessarily a good idea.",
+          "reason": "The context suggests that while following professional money managers can be a strategy, it emphasizes the importance of doing personal research and not buying stocks blindly, indicating that it is not always a good idea to follow an investment guru blindly.",
+          "verdict": 1
+        },
+        {
+          "statement": "It is important to conduct personal research and due diligence before investing in any stock.",
+          "reason": "The context explicitly states that one should do their due diligence before making a purchase, highlighting the importance of personal research.",
+          "verdict": 1
+        },
+        {
+          "statement": "Investors should not blindly follow what someone else has done.",
+          "reason": "The context clearly mentions that one should never buy any stock blindly just because someone else bought it, directly supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "It is important to understand the reasons behind the stock purchase and the amount purchased.",
+          "reason": "The context emphasizes that the most important question is not what was bought, but why it was bought and how much, which supports the importance of understanding the reasons behind stock purchases.",
+          "verdict": 1
+        },
+        {
+          "statement": "Investors should think independently and carefully when making any investment decisions.",
+          "reason": "The context advises that thinking independently is helpful and suggests moving carefully with any investment decisions, which supports the need for independent thought.",
+          "verdict": 1
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample": {
+        "question": "Challenged an apparently bogus credit card charge, what happens now?",
+        "answer": "\nNow, the collector is obliged to go back to the creditor to verify the claim. If the claim is found to be valid, the charge will remain on the credit card bill. If the claim is found to be invalid, the charge will be dropped. It is also important to keep an eye on credit card bills and accounts for any other suspicious activity, as it is possible that the credit card number was stolen. If any other suspicious activity is noticed, the credit card company should be contacted immediately.",
+        "contexts": "If you tell the collector that the claim isn't valid, they're obliged to go back to the creditor to verify it. Sometimes that gets a real person, instead of their automatic billing system, to look at the claim, and if you're right, they'll drop it.Yes.  For $15 it's not worth anyone's time to dig deep just for this specific occurrence. What you should do, however, is keep an eye on your credit card bills and accounts and watch for any other suspicious activity.  It is possible that your number was stolen somehow and someone is using it fraudulently, so you want to be on the lookout in case they try to use it again.  However, your credit card company is going to be much, much better than you at detecting patterns of fraud, which is why you should leave it to them unless and until you actually see more suspicious activity.First thing to do when you notice a credit card fraud is to call the respective banks who issues the credit card and most banks immediately (as far as my experience goes - twice) they will cancel the credit card and issue a new card with different number. Your credit card account will remain the same, no effect on credit score as the account is still active, its just the credit card number is changed. If you are more concerned about Identity Theft, there are two further options you can pursue. Place a Fraud Alert : Ask 1 of the 3 credit reporting companies to put   a fraud alert on your credit report. They must tell the other 2   companies. An initial fraud alert can make it harder for an identity   thief to open more accounts in your name. The alert lasts 90 days but   you can renew it. - as per Federal Trade Commission Credit Freeze : If you\u2019re concerned about identity theft, those reported mega-data breaches, or someone gaining access to your credit   report without your permission, you might consider placing a credit   freeze on your report. - as per Federal Trade Commission"
+      },
+      "faithfulness_score": 0.8333333333333334,
+      "reasoning": "Faithful statements: 5/6",
+      "statements": [
+        "The collector is obliged to go back to the creditor to verify the claim.",
+        "If the claim is found to be valid, the charge will remain on the credit card bill.",
+        "If the claim is found to be invalid, the charge will be dropped.",
+        "It is important to keep an eye on credit card bills and accounts for any other suspicious activity.",
+        "It is possible that the credit card number was stolen.",
+        "If any other suspicious activity is noticed, the credit card company should be contacted immediately."
+      ],
+      "verdicts": [
+        {
+          "statement": "The collector is obliged to go back to the creditor to verify the claim.",
+          "reason": "The context explicitly states that if you tell the collector that the claim isn't valid, they are obliged to verify it with the creditor.",
+          "verdict": 1
+        },
+        {
+          "statement": "If the claim is found to be valid, the charge will remain on the credit card bill.",
+          "reason": "The context does not mention what happens if the claim is found to be valid; it only discusses what happens if the claim is invalid.",
+          "verdict": 0
+        },
+        {
+          "statement": "If the claim is found to be invalid, the charge will be dropped.",
+          "reason": "The context states that if you're right about the claim being invalid, they will drop it, which implies that the charge will be dropped if the claim is invalid.",
+          "verdict": 1
+        },
+        {
+          "statement": "It is important to keep an eye on credit card bills and accounts for any other suspicious activity.",
+          "reason": "The context advises to keep an eye on credit card bills and accounts for suspicious activity, indicating its importance.",
+          "verdict": 1
+        },
+        {
+          "statement": "It is possible that the credit card number was stolen.",
+          "reason": "The context mentions the possibility of the credit card number being stolen and used fraudulently.",
+          "verdict": 1
+        },
+        {
+          "statement": "If any other suspicious activity is noticed, the credit card company should be contacted immediately.",
+          "reason": "The context suggests that you should contact the banks immediately if you notice suspicious activity, which supports this statement.",
+          "verdict": 1
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample": {
+        "question": "What are the ins/outs of writing equipment purchases off as business expenses in a home based business?",
+        "answer": "\nWriting equipment purchases off as business expenses in a home based business can be done in a few ways. Generally, you can deduct the cost of the equipment from your business income on Schedule C. However, you must use the equipment exclusively for business use in order to take the deduction. Additionally, most items used in business must be depreciated, meaning you can deduct a small fraction of the cost each year depending on the lifetime of the item as per IRS rules. Some items can be expensed, meaning you can deduct the entire cost in the first year, but if you no longer stay in business, you must recapture this and pay taxes on the amount recaptured in the later year. For equipment purchases under US$10,000, they can be expensed, meaning you can claim the entire cost in one year. It is important to keep track of your costs and to ask the charity to pay you for the product you generate and then donate that amount of money back to them.",
+        "contexts": "You would report it as business income on Schedule C.  You may be able to take deductions against that income as well (home office, your computer, an android device, any advertising or promotional expenses, etc.) but you'll want to consult an accountant about that. Generally you can only take those kinds of deductions if you use the space or equipment exclusively for business use (not likely if it's just a hobby).  The IRS is pretty picky about that stuff.Most items used in business have to be depreciated; you get to deduct a small fraction of the cost each year depending on the lifetime of the item as per IRS rules. That is, you cannot assume a one-year life for an electronic item  even if it will be obsolete in three months.  Some items can be expensed; you get to deduct the entire cost in the first year but then if you don't stay in business, e.g. you get a job paying wages and are no longer self-employed, you have to recapture this and pay taxes on the amount recaptured in the later year.  With respect to consumer-type electronics such as an iPad or laptop, it helps to have a separate  item for personal use that you can show in case of an audit.Costs for home / small business equipment under US$10,000 don't have to  be capitalized. They can be expensed (that is, claimed as an expense all in one year.)  Unless this printer is one of those behemoths that collates, folds, staples, and mails medium-sized booklets, it cost less than that. Keep track of your costs. Ask the charity to pay you those costs for the product you generate, and then donate that amount of money back to them. This will be good for the charity because they'll correctly account for the cost of printing."
+      },
+      "faithfulness_score": 0.9,
+      "reasoning": "Faithful statements: 9/10",
+      "statements": [
+        "Writing equipment purchases can be written off as business expenses in a home-based business in a few ways.",
+        "The cost of the equipment can be deducted from business income on Schedule C.",
+        "The equipment must be used exclusively for business purposes to qualify for the deduction.",
+        "Most items used in business must be depreciated.",
+        "Depreciation allows for the deduction of a small fraction of the cost each year based on the item's lifetime according to IRS rules.",
+        "Some items can be expensed, allowing for the deduction of the entire cost in the first year.",
+        "If a business ceases operations, any expensed amount must be recaptured and taxes must be paid on the recaptured amount in a later year.",
+        "Equipment purchases under US$10,000 can be expensed, allowing for the entire cost to be claimed in one year.",
+        "It is important to keep track of costs related to equipment purchases.",
+        "It is advisable to ask the charity to pay for the product generated and then donate that amount back to the charity."
+      ],
+      "verdicts": [
+        {
+          "statement": "Writing equipment purchases can be written off as business expenses in a home-based business in a few ways.",
+          "reason": "The context discusses deductions for business income but does not specifically mention writing equipment or the various ways to write off expenses. Therefore, this statement cannot be directly inferred.",
+          "verdict": 0
+        },
+        {
+          "statement": "The cost of the equipment can be deducted from business income on Schedule C.",
+          "reason": "The context explicitly states that business income should be reported on Schedule C and mentions deductions against that income, making this statement directly inferable.",
+          "verdict": 1
+        },
+        {
+          "statement": "The equipment must be used exclusively for business purposes to qualify for the deduction.",
+          "reason": "The context clearly states that deductions can only be taken if the space or equipment is used exclusively for business use, making this statement directly inferable.",
+          "verdict": 1
+        },
+        {
+          "statement": "Most items used in business must be depreciated.",
+          "reason": "The context mentions that most items used in business have to be depreciated, making this statement directly inferable.",
+          "verdict": 1
+        },
+        {
+          "statement": "Depreciation allows for the deduction of a small fraction of the cost each year based on the item's lifetime according to IRS rules.",
+          "reason": "The context explains that depreciation allows for a small fraction of the cost to be deducted each year based on the item's lifetime, making this statement directly inferable.",
+          "verdict": 1
+        },
+        {
+          "statement": "Some items can be expensed, allowing for the deduction of the entire cost in the first year.",
+          "reason": "The context states that some items can be expensed and the entire cost can be deducted in the first year, making this statement directly inferable.",
+          "verdict": 1
+        },
+        {
+          "statement": "If a business ceases operations, any expensed amount must be recaptured and taxes must be paid on the recaptured amount in a later year.",
+          "reason": "The context mentions that if a business ceases operations, the expensed amount must be recaptured and taxes paid on it, making this statement directly inferable.",
+          "verdict": 1
+        },
+        {
+          "statement": "Equipment purchases under US$10,000 can be expensed, allowing for the entire cost to be claimed in one year.",
+          "reason": "The context states that costs for equipment under US$10,000 can be expensed and claimed in one year, making this statement directly inferable.",
+          "verdict": 1
+        },
+        {
+          "statement": "It is important to keep track of costs related to equipment purchases.",
+          "reason": "The context advises to keep track of costs, making this statement directly inferable.",
+          "verdict": 1
+        },
+        {
+          "statement": "It is advisable to ask the charity to pay for the product generated and then donate that amount back to the charity.",
+          "reason": "The context suggests asking the charity to pay for costs and then donating that amount back, making this statement directly inferable.",
+          "verdict": 1
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample": {
+        "question": "Where to request ACH Direct DEBIT of funds from MY OWN personal bank account?",
+        "answer": "\nThe best place to request ACH Direct DEBIT of funds from your own personal bank account is at your own bank. You should contact your bank and ask them about their ACH Direct DEBIT services. They should be able to provide you with the necessary information and instructions on how to set up the transaction.",
+        "contexts": "Call Wells Fargo or go to a branch.  Tell them what you're trying to accomplish, not the vehicle you think you should use to get there.  Don't tell them you want to ACH DEBIT from YOUR ACCOUNT of YOUR MONEY.  Tell them you apparently need a paperless transaction sent to this and that account at this and that bank.  See if they offer a solution.\"Lets say you owed me $123.00 an wanted to mail me a check. I would then take the check from my mailbox an either take it to my bank, or scan it and deposit it via their electronic interface. Prior to you mailing it you would have no idea which bank I would use, or what my account number is. In fact I could have multiple bank accounts, so I could decide which one to deposit it into depending on what I wanted to do with the money, or which bank paid the most interest, or by coin flip. Now once the check is deposited my bank would then \"\"stamp\"\" the check with their name, their routing number, the date, an my account number. Eventually an image of the canceled check would then end up back at your bank. Which they would either send to you, or make available to you via their banking website. You don't mail it to my bank. You mail it to my home, or my business, or wherever I tell you to mail it. Some business give you the address of another location, where either a 3rd party processes all their checks, or a central location  where all the money for multiple branches are processed. If you do owe a company they will generally ask that in the memo section in the lower left corner that you include your customer number. This is to make sure that if they have multiple Juans the money is accounted correctly. In all my dealings will paying bills and mailing checks I have never been asked to send a check directly to the bank. If they want you to do exactly as you describe, they should provide you with a form or other instructions.\"I can't speak for the US, but I've completed direct tax payments via my online bank account (for business and personal) in two countries (South Africa and the UK).  I find it easier and with a better record that the transaction took place than any of the other methods available (including going directly into a tax office to pay by cheque). Mail can go missing. Queueing in their offices takes hours and the result can still be misfiled (by them).  Ditto allowing them to do a pay run on your account - they can make a mistake and you'll have difficulty proving it.  A payment via my bank account gives me an electronic record and I can ensure all the details are correct myself. In addition, in the UK, paying online gives you a good few months extra grace to pay.  Even in South Africa, online payments are given a few weeks grace over physical payments.  Their recognising that you paying electronically saves them processing time."
+      },
+      "faithfulness_score": 0.6666666666666666,
+      "reasoning": "Faithful statements: 2/3",
+      "statements": [
+        "The best place to request ACH Direct DEBIT of funds from a personal bank account is at the bank.",
+        "A person should contact the bank and inquire about the ACH Direct DEBIT services.",
+        "The bank should be able to provide the necessary information and instructions on how to set up the transaction."
+      ],
+      "verdicts": [
+        {
+          "statement": "The best place to request ACH Direct DEBIT of funds from a personal bank account is at the bank.",
+          "reason": "The context advises against telling the bank to ACH DEBIT from your account, suggesting that the request should be framed differently. Therefore, the statement cannot be directly inferred as true.",
+          "verdict": 0
+        },
+        {
+          "statement": "A person should contact the bank and inquire about the ACH Direct DEBIT services.",
+          "reason": "The context suggests contacting the bank to discuss what you are trying to accomplish, which implies that inquiring about ACH Direct DEBIT services is appropriate. This statement can be inferred from the context.",
+          "verdict": 1
+        },
+        {
+          "statement": "The bank should be able to provide the necessary information and instructions on how to set up the transaction.",
+          "reason": "The context implies that the bank will offer a solution when contacted about the transaction, suggesting they can provide necessary information and instructions. Thus, this statement can be inferred.",
+          "verdict": 1
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample": {
+        "question": "Should a retail trader bother about reading SEC filings",
+        "answer": "\nIt depends on the individual investor's goals and resources. For an average retail investor, reading SEC filings is unlikely to be useful since they should be investing in mutual funds or ETFs, which typically provide comparable returns with far less risk. However, if the investor has the time and energy to read a large number of SEC filings, they may be able to make use of the information to make informed decisions about individual companies. Additionally, reading SEC filings can be instructive for an average investor with big dreams, as they can allocate a \"play money\" fund to try their hand at following insider trades or the like. Ultimately, it is up to the individual investor to decide if reading SEC filings is worth their time and effort.",
+        "contexts": "\"There are many different kinds of SEC filings with different purposes.  Broadly speaking, what they have in common is that they are the ways that companies publicly disclose information that they are legally required to disclose.  The page that you listed gives brief descriptions of many types, but if you click through to the articles on individual types of filings, you can get more info. One of the most commonly discussed filings is the 10-K, which is, as Wikipedia says, \"\"a comprehensive summary of a company's financial performance\"\".  This includes info like earnings and executive pay. One example of a form that some people believe has potential utility for investors is Form 4, which is a disclosure of \"\"insider trading\"\".  People with a privileged stake in a company (executives, directors, and major shareholders) cannot legally buy or sell shares without disclosing it by filing a Form 4.  Some people think that you can make use of this information in the sense that if, for instance, the CEO of Google buys a bunch of Twitter stock, they may have some reason for thinking it will go up, so maybe you should buy it too.  Whether such inferences are accurate, and whether you can garner a practical benefit from them (i.e., whether you can manage to buy before everyone else notices and drives the price up) is debatable. My personal opinion would be that, for an average retail investor, readng SEC filings is unlikely to be useful.  The reason is that an average retail investor shouldn't be investing in individual companies at all, but rather in mutual funds or ETFs, which typically provide comparable returns with far less risk.  SEC filings are made by individual companies, so it doesn't generally help you to read them unless you're going to take action related to an individual company.  It doesn't generally make sense to take action related to an individual company if you don't have the time and energy to read a large number of SEC filings to decide which company to take action on.  If you have the time and energy to read a large number of SEC filings, you're probably not an average retail investor.  If you are a wheeler dealer who plays in the big leagues, you might benefit from reading SEC filings.  However, if you aren't already reading SEC filings, you're probably not a wheeler dealer who plays in the big leagues. That said, if you're a currently-average investor with big dreams, it could be instructive to read a few filings to explore what you might do with them.  You could, for instance, allocate a \"\"play money\"\" fund of a few thousand dollars and try your hand at following insider trades or the like.  If you make some money, great; if not, oh well.  Realistically, though, there are so many people who make a living reading SEC filings and acting on them every day that you have little chance of finding a \"\"diamond in the rough\"\" unless you also make a living by doing it every day. It's sort of like asking \"\"Should I read Boating Monthly to improve my sailing skills?\"\"  If you're asking because you want to rent a Hobie Cat and go for a pleasure cruise now and then, sure, it can't hurt.  If you're asking because you want to enter the America's Cup, you can still read Boating Monthly, but it won't in itself meaningfully increase your chances of winning the America's Cup.\"I use 10-K and 10-Qs to understand to read the disclosed risk factors related to a business. Sometimes they are very comical. But when you see that risk factor materializing you can understand how it will effect the company. For example, one microlending company's risk factor stated that if Elizabeth Warren becomes head of the Consumer Financial Protection Bureau we will have a hard time... so we are expanding in Mexico and taking our politically unfavorable lending practices there. I like seeing how many authorized shares there are or if there are plans to issue more. An example was where I heard from former employees of a company how gullible the other employees at that company were and how they all thought they were going to get rich or were being told so by upper management. Poor/Quirky/Questionable/Misleading management is one of my favorite things to look for in a company so I started digging into their SEC filings and saw that they were going to do a reverse split which would make the share prices trade higher (while experiencing no change in market cap), but then digging further I saw that they were only changing the already issued shares, but keeping the authorized shares at the much larger amount of shares, and that they planned to do financing by issuing more of the authorized shares. I exclaimed that this would mean the share prices would drop by 90%-99% after the reverse split and you mean to tell me that nobody realizes this (employees or the broad market). I was almost tempted to stand outside their office and ask employees if I could borrow their shares to short, because there wasn't enough liquidity on the stock market! This was almost the perfect short but it wasn't liquid or have any options so not perfect after all. It traded from $20 after the reverse split to $1.27 I like understanding how much debt a company is in and the structure of that debt, like if a loan shark has large payments coming up soon. This is generally what I use those particular forms for. But they contain a lot of information A lot of companies are able to act they way they do because people do not read.If you're researching a publicly traded company in the USA, you can search the company filings with the SEC. Clicking 'Filings' should take you here."
+      },
+      "faithfulness_score": 1.0,
+      "reasoning": "Faithful statements: 10/10",
+      "statements": [
+        "The decision to read SEC filings depends on the goals and resources of the individual investor.",
+        "For an average retail investor, reading SEC filings is unlikely to be useful.",
+        "Average retail investors should be investing in mutual funds or ETFs.",
+        "Mutual funds or ETFs typically provide comparable returns with far less risk.",
+        "If an investor has the time and energy to read a large number of SEC filings, that investor may be able to make use of the information.",
+        "Reading SEC filings can help an investor make informed decisions about individual companies.",
+        "Reading SEC filings can be instructive for an average investor with big dreams.",
+        "An average investor can allocate a 'play money' fund to try following insider trades or similar activities.",
+        "The decision to read SEC filings is ultimately up to the individual investor.",
+        "The individual investor must decide if reading SEC filings is worth the time and effort."
+      ],
+      "verdicts": [
+        {
+          "statement": "The decision to read SEC filings depends on the goals and resources of the individual investor.",
+          "reason": "The context discusses how the usefulness of SEC filings varies based on the investor's goals and resources, implying that the decision is personal and situational.",
+          "verdict": 1
+        },
+        {
+          "statement": "For an average retail investor, reading SEC filings is unlikely to be useful.",
+          "reason": "The context explicitly states that for an average retail investor, reading SEC filings is unlikely to be useful, making this statement directly supported by the text.",
+          "verdict": 1
+        },
+        {
+          "statement": "Average retail investors should be investing in mutual funds or ETFs.",
+          "reason": "The context suggests that average retail investors should invest in mutual funds or ETFs rather than individual companies, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Mutual funds or ETFs typically provide comparable returns with far less risk.",
+          "reason": "The context mentions that mutual funds or ETFs typically provide comparable returns with less risk, directly supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "If an investor has the time and energy to read a large number of SEC filings, that investor may be able to make use of the information.",
+          "reason": "The context implies that those who have the time and energy to read SEC filings might benefit from the information, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Reading SEC filings can help an investor make informed decisions about individual companies.",
+          "reason": "The context discusses the potential benefits of reading SEC filings for those who are actively investing in individual companies, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Reading SEC filings can be instructive for an average investor with big dreams.",
+          "reason": "The context states that it could be instructive for an average investor with big dreams to read SEC filings, directly supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "An average investor can allocate a 'play money' fund to try following insider trades or similar activities.",
+          "reason": "The context suggests that an average investor could allocate a 'play money' fund to experiment with following insider trades, thus supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The decision to read SEC filings is ultimately up to the individual investor.",
+          "reason": "The context implies that the choice to read SEC filings is a personal decision based on individual circumstances, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The individual investor must decide if reading SEC filings is worth the time and effort.",
+          "reason": "The context discusses the need for individual investors to assess the value of reading SEC filings based on their own situation, supporting this statement.",
+          "verdict": 1
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample": {
+        "question": "Using credit card points to pay for tax deductible business expenses",
+        "answer": "\nUsing credit card points to pay for tax deductible business expenses is not recommended. Since the points are typically earned from personal purchases, they are not considered taxable income. However, if the points are used to pay for business expenses, the amount of the points should be accounted for as a negative expense, similar to how you would handle returning an item you purchased and receiving a credit card refund. This would effectively counter-act the deduction for the expense.",
+        "contexts": "\"For simplicity, let's start by just considering cash back. In general, cash back from credit cards for personal use is not taxable, but for business use it is taxable (sort of, I'll explain later). The reason is most personal purchases are made with after tax dollars; you typically aren't deducting the cost of what you purchased from your personal income, so if you purchase something that costs $100 and you receive $2 back from the CC company, effectively you have paid $98 for that item but that wouldn't affect your tax bill. However, since businesses typically deduct most expenses, that same $100 deduction would have only been a $98 deduction for business tax purposes, so in this case the $2 should be accounted for. Note, you should not consider that $2 as income though; that would artificially inflate your revenue. It should be treated as a negative expense, similar to how you would handle returning an item you purchased and receiving a CC refund. Now for your specific questions: Part 1: As a small business owner, I wish to attend an annual seminar to improve my business. I have enough credit card reward points to cover the airfare, hotel, and rental car. Will those expenses still be deductible at the value displayed on the receipt? Effectively no, these expenses are not deductible. If you deduct them they will be completely counter-acted by the \"\"refund\"\" you receive for the payments. Part 2: Does it matter if those points are accrued on my personal credit card, rather than a business credit card? This is where it gets hairy. Suppose your company policy is that employees make purchases with their own personal credit cards and submit receipts for reimbursement. In this case the employer can simply reimburse and would not know or care if the employee is racking up rewards/points/cashback. The trick is, as the employee, you must always purchase business related items normally so you have receipts to show, and if you receive cashback on the side there seems to be a \"\"don't ask, don't tell\"\" rule that the IRS is OK with. It works the same way with heavy business travelers and airline miles- the free vacations those users get as perks are not treated as taxable income. However, I would not go out of my way to abuse this \"\"loophole\"\". Typically, things like travel (airfare, hotel, car rental, meals) are expected. But I wouldn't go purchase 100 company laptops on your personal card and ask the company to reimburse you. The company should purchase those 100 laptops on a company card and effectively reduce the sale price by the cashback received. (Or more realistically, negotiate a better discount with your account rep and just cut them a check.) Part 3: Would there be any difference between credit card points and brand-loyalty points? If the rental car were paid for with points earned directly on the rental car company's loyalty system (not a CC), would that yield a different result? There is no difference. Perhaps the simplest way to think about this is you can only deduct an expense that you actually incur. In other words, the expense should show up on a bank or CC statement. This is why when you volunteer and work 10 hours for a charity, you can't call that a \"\"donation\"\" of any amount of money because there is no actual payment made that would show up on a bank statement. Instead you could have billed the charity for your 10 hours of work, and then turned around and donated that same amount back to them, but it ends up being a wash.\"\"There are two fundamentally different reasons merchants will give cash discounts. One is that they will not have to pay interchange fees on cash (or pay much lower fees on no-reward debit cards).  Gas stations in my home state of NJ already universally offer different cash and credit prices.  Costco will not even take Visa and MasterCard credit cards (debit only) for this reason. The second reason, not often talked about but widely known amongst smaller merchants, is that they can fail to declare the sale (or claim a smaller portion of the sale) to the authorities in order to reduce their tax liability.  Obviously the larger stores will not risk their jobs for this, but smaller owner-operated (\"\"mom and pop\"\") stores often will.  This applies to both reduced sales tax liability and income tax liability.  This used to be more limited per sale (but more widespread overall), since tax authorities would look closely for a mismatch between declared income and spending, but with an ever-larger proportion of customers paying by credit card, merchants can take a bigger chunk of their cash sales off the books without drawing too much suspicion. Both of the above are more applicable to TVs than cars, since (1) car salesmen make substantial money from offering financing and (2) all cars must be registered with the state, so alternative records of sales abound.  Also, car prices tend to be at or near the credit limit of most cards, so it is not as common to pay for them in this way.\"I had $70K in credit card at one point.  Limited income, starting a business - it's the only credit available. (yes, all paid off now)."
+      },
+      "faithfulness_score": 0.8333333333333334,
+      "reasoning": "Faithful statements: 5/6",
+      "statements": [
+        "Using credit card points to pay for tax deductible business expenses is not recommended.",
+        "Credit card points are typically earned from personal purchases.",
+        "Credit card points are not considered taxable income.",
+        "If credit card points are used to pay for business expenses, the amount of the points should be accounted for as a negative expense.",
+        "The handling of points used for business expenses is similar to how one would handle returning an item and receiving a credit card refund.",
+        "Using credit card points in this manner would effectively counteract the deduction for the expense."
+      ],
+      "verdicts": [
+        {
+          "statement": "Using credit card points to pay for tax deductible business expenses is not recommended.",
+          "reason": "The context states that expenses paid with credit card points are not deductible as they are counteracted by the cashback received, implying that using points for tax-deductible expenses is not advisable.",
+          "verdict": 1
+        },
+        {
+          "statement": "Credit card points are typically earned from personal purchases.",
+          "reason": "The context does not explicitly state that credit card points are earned from personal purchases; it discusses the use of personal credit cards for business expenses but does not clarify the source of the points.",
+          "verdict": 0
+        },
+        {
+          "statement": "Credit card points are not considered taxable income.",
+          "reason": "The context mentions that cashback and similar rewards are not treated as taxable income, which implies that credit card points would also not be considered taxable income.",
+          "verdict": 1
+        },
+        {
+          "statement": "If credit card points are used to pay for business expenses, the amount of the points should be accounted for as a negative expense.",
+          "reason": "The context explains that cashback should be treated as a negative expense, which can be inferred to apply to points as well when used for business expenses.",
+          "verdict": 1
+        },
+        {
+          "statement": "The handling of points used for business expenses is similar to how one would handle returning an item and receiving a credit card refund.",
+          "reason": "The context explicitly states that points should be treated similarly to a credit card refund, indicating that the handling is indeed similar.",
+          "verdict": 1
+        },
+        {
+          "statement": "Using credit card points in this manner would effectively counteract the deduction for the expense.",
+          "reason": "The context clearly states that expenses paid with points are not deductible because they are counteracted by the cashback, confirming this statement as true.",
+          "verdict": 1
+        }
+      ],
+      "success": true
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "timestamp": "2025-09-01T08:52:52.004190",
+  "total_jobs": 3,
+  "successful_jobs": 3,
+  "failed_jobs": 0,
+  "results": [
+    {
+      "metric": "faithfulness",
+      "implementation": "modern_simplified",
+      "dataset": "amnesty",
+      "samples": 20,
+      "seed": 42,
+      "success": true,
+      "execution_time": 3.992474,
+      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/results/faithfulness/amnesty/amnesty_ragas_experimental.json",
+      "average_score": 0.8699999999999999,
+      "num_samples": 20,
+      "error_message": null
+    },
+    {
+      "metric": "faithfulness",
+      "implementation": "modern_exact_replica",
+      "dataset": "amnesty",
+      "samples": 20,
+      "seed": 42,
+      "success": true,
+      "execution_time": 36.207291,
+      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/results/faithfulness/amnesty/amnesty_ragas_experimental_exact.json",
+      "average_score": 0.5362457103428805,
+      "num_samples": 20,
+      "error_message": null
+    },
+    {
+      "metric": "faithfulness",
+      "implementation": "current_ragas_main",
+      "dataset": "amnesty",
+      "samples": 20,
+      "seed": 42,
+      "success": true,
+      "execution_time": 54.445286,
+      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/results/faithfulness/amnesty/amnesty_ragas_main.json",
+      "average_score": 0.5438726273726274,
+      "num_samples": 20,
+      "error_message": null
+    }
+  ]
+}

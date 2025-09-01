@@ -19,12 +19,12 @@ dependencies = [
     "instructor",
     "gitpython",
     "pillow>=10.4.0",
-
     # LangChain ecosystem
     "langchain",
     "langchain-core",
     "langchain-community",
     "langchain_openai",
+    "loguru>=0.7.3",
 ]
 dynamic = ["version", "readme"]
 

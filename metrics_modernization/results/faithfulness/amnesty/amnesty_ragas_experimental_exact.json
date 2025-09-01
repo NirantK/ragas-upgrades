@@ -1,0 +1,184 @@
+{
+  "timestamp": "2025-09-01T09:06:21.786474",
+  "dataset": "AmnestyQA",
+  "framework": "ragas_experimental_exact",
+  "metric": "faithfulness",
+  "num_samples": 1,
+  "num_successful": 1,
+  "average_faithfulness": 1.0,
+  "scores": [
+    1.0
+  ],
+  "detailed_results": [
+    {
+      "sample": {
+        "question": "What are the consequences of criminalizing abortion for marginalized individuals?",
+        "answer": "Criminalizing abortion can have severe consequences for marginalized individuals, particularly those who are already facing various forms of discrimination and inequality. Some of the consequences include:\n\n1. Health risks: When abortion is criminalized, individuals may resort to unsafe and illegal methods to terminate their pregnancies, leading to serious health complications and even death. Marginalized individuals, who often have limited access to healthcare and resources, are more likely to be affected by these risks.\n\n2. Economic burden: Marginalized individuals, who are more likely to face financial constraints, may struggle to afford safe and legal abortions in countries where it is criminalized. This can lead to increased financial burdens, as they may have to travel long distances or seek expensive underground services.\n\n3. Limited reproductive choices: Criminalizing abortion restricts individuals' reproductive choices and autonomy. Marginalized individuals, who already face various barriers to accessing healthcare and education, may be further limited in their ability to make informed decisions about their reproductive health.\n\n4. Increased inequality: Criminalizing abortion disproportionately affects marginalized individuals, exacerbating existing inequalities. Women from low-income backgrounds, racial and ethnic minorities, LGBTQ+ individuals, and those living in rural areas often face additional barriers to accessing safe and legal abortion services, further widening the gap between privileged and marginalized groups.\n\n5. Criminalization of pregnancy: In some cases, criminalizing abortion can lead to the criminalization of pregnancy itself. This can result in the surveillance and punishment of pregnant individuals, particularly those from marginalized communities, who may be subjected to invasive monitoring, discrimination, and even imprisonment for actions perceived as harmful to the fetus.\n\n6. Mental health impact: The criminalization of abortion can have significant psychological consequences for marginalized individuals. The stigma and shame associated with seeking illegal abortions or being unable to access safe services can lead to increased stress, anxiety, and depression.\n\n7. Reproductive injustice: Criminalizing abortion perpetuates reproductive injustice by denying marginalized individuals the right to control their own bodies and make decisions about their reproductive health. It reinforces systemic inequalities and denies them the same reproductive rights and freedoms enjoyed by more privileged individuals.\n\nIt is important to note that these consequences are not limited to criminalizing abortion alone but are often intertwined with broader social, economic, and healthcare disparities faced by marginalized communities.",
+        "contexts": "- Abortion criminalization contributes to stigma around abortion and particularly on those who need, provide or assist with abortion services.\n- Criminalization, lack of information, disinformation, and stigma have severe and irreversible effects, particularly on marginalized individuals.\n- Girls and young women are kept in the dark about their rights and often forced to bring to term pregnancies resulting from sexual violence.\n- Marginalized individuals, including those living in poverty, historically discriminated against, Indigenous and Afro-descendent women, migrants, and refugees, are disproportionately affected by abortion criminalization.\n- Criminalization of abortion is the biggest contributing factor to the estimated 35 million unsafe abortions happening every year, increasing maternal mortality and morbidity.\n- Criminalizing abortion undermines access to health services and leads to increased rates of preventable maternal mortality and morbidity.\n- Abortion criminalization forces women, girls, and all pregnant individuals to attempt unsafe clandestine abortion methods, placing their life and health at risk.\n- Abortion laws in Nigeria are restrictive, making abortion unsafe and difficult to access safe abortion care.\nIn countries where abortion is illegal or highly restricted, marginalized individuals, such as low-income women, young girls, and immigrants, are disproportionately affected. They may resort to unsafe and clandestine methods to terminate a pregnancy, putting their lives at risk. The criminalization of abortion can further perpetuate cycles of poverty, inequality, and discrimination, as marginalized individuals are denied the autonomy to make decisions about their own bodies and futures.\nThe debate over abortion has been a contentious issue for decades, with strong opinions on both sides of the argument. The criminalization of abortion can have far-reaching consequences for marginalized individuals, particularly those who may not have access to safe and legal options for terminating a pregnancy. This can lead to increased health risks, financial burdens, and emotional distress for those who are already facing systemic barriers to healthcare and support services."
+      },
+      "faithfulness_score": 1.0,
+      "reasoning": "Faithful statements: 26/26",
+      "statements": [
+        "Criminalizing abortion can have severe consequences for marginalized individuals.",
+        "Marginalized individuals often face various forms of discrimination and inequality.",
+        "Some consequences of criminalizing abortion include health risks.",
+        "When abortion is criminalized, individuals may resort to unsafe and illegal methods to terminate pregnancies.",
+        "Unsafe and illegal methods can lead to serious health complications and even death.",
+        "Marginalized individuals often have limited access to healthcare and resources.",
+        "Marginalized individuals are more likely to be affected by health risks associated with unsafe abortion methods.",
+        "Another consequence of criminalizing abortion is the economic burden on marginalized individuals.",
+        "Marginalized individuals are more likely to face financial constraints.",
+        "Marginalized individuals may struggle to afford safe and legal abortions in countries where abortion is criminalized.",
+        "Increased financial burdens can occur as marginalized individuals may have to travel long distances or seek expensive underground services.",
+        "Criminalizing abortion limits reproductive choices and autonomy for individuals.",
+        "Marginalized individuals already face various barriers to accessing healthcare and education.",
+        "Marginalized individuals may be further limited in their ability to make informed decisions about reproductive health due to criminalizing abortion.",
+        "Criminalizing abortion increases inequality among marginalized individuals.",
+        "Criminalizing abortion disproportionately affects marginalized individuals and exacerbates existing inequalities.",
+        "Women from low-income backgrounds, racial and ethnic minorities, LGBTQ+ individuals, and those living in rural areas often face additional barriers to accessing safe and legal abortion services.",
+        "These barriers further widen the gap between privileged and marginalized groups.",
+        "Criminalizing abortion can lead to the criminalization of pregnancy itself in some cases.",
+        "Criminalization of pregnancy can result in the surveillance and punishment of pregnant individuals.",
+        "Marginalized communities may be subjected to invasive monitoring, discrimination, and even imprisonment for actions perceived as harmful to the fetus.",
+        "The criminalization of abortion can have significant psychological consequences for marginalized individuals.",
+        "Stigma and shame associated with seeking illegal abortions can lead to increased stress, anxiety, and depression.",
+        "Criminalizing abortion perpetuates reproductive injustice by denying marginalized individuals the right to control their own bodies.",
+        "Marginalized individuals are denied the same reproductive rights and freedoms enjoyed by more privileged individuals.",
+        "These consequences are not limited to criminalizing abortion alone but are often intertwined with broader social, economic, and healthcare disparities faced by marginalized communities."
+      ],
+      "verdicts": [
+        {
+          "statement": "Criminalizing abortion can have severe consequences for marginalized individuals.",
+          "reason": "The context explicitly states that criminalization has severe and irreversible effects on marginalized individuals, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Marginalized individuals often face various forms of discrimination and inequality.",
+          "reason": "The context discusses how marginalized individuals are historically discriminated against and face systemic barriers, which implies they encounter discrimination and inequality.",
+          "verdict": 1
+        },
+        {
+          "statement": "Some consequences of criminalizing abortion include health risks.",
+          "reason": "The context mentions increased health risks as a consequence of abortion criminalization, directly supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "When abortion is criminalized, individuals may resort to unsafe and illegal methods to terminate pregnancies.",
+          "reason": "The context states that criminalization forces individuals to attempt unsafe clandestine abortion methods, which directly supports this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Unsafe and illegal methods can lead to serious health complications and even death.",
+          "reason": "The context indicates that unsafe abortion methods place individuals' lives and health at risk, which implies serious health complications and potential death.",
+          "verdict": 1
+        },
+        {
+          "statement": "Marginalized individuals often have limited access to healthcare and resources.",
+          "reason": "The context discusses how marginalized individuals face systemic barriers to healthcare, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Marginalized individuals are more likely to be affected by health risks associated with unsafe abortion methods.",
+          "reason": "The context states that marginalized individuals are disproportionately affected by the consequences of abortion criminalization, including health risks from unsafe methods.",
+          "verdict": 1
+        },
+        {
+          "statement": "Another consequence of criminalizing abortion is the economic burden on marginalized individuals.",
+          "reason": "The context discusses financial burdens faced by marginalized individuals due to the criminalization of abortion, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Marginalized individuals are more likely to face financial constraints.",
+          "reason": "The context implies that marginalized individuals, including those living in poverty, face financial constraints, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Marginalized individuals may struggle to afford safe and legal abortions in countries where abortion is criminalized.",
+          "reason": "The context mentions that marginalized individuals are denied access to safe and legal options, implying they struggle to afford them.",
+          "verdict": 1
+        },
+        {
+          "statement": "Increased financial burdens can occur as marginalized individuals may have to travel long distances or seek expensive underground services.",
+          "reason": "The context discusses the financial burdens and the need for marginalized individuals to seek unsafe services, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Criminalizing abortion limits reproductive choices and autonomy for individuals.",
+          "reason": "The context states that criminalization denies individuals autonomy over their bodies, directly supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Marginalized individuals already face various barriers to accessing healthcare and education.",
+          "reason": "The context discusses systemic barriers faced by marginalized individuals, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Marginalized individuals may be further limited in their ability to make informed decisions about reproductive health due to criminalizing abortion.",
+          "reason": "The context implies that criminalization affects the ability of marginalized individuals to make informed decisions, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Criminalizing abortion increases inequality among marginalized individuals.",
+          "reason": "The context states that criminalization exacerbates existing inequalities, directly supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Criminalizing abortion disproportionately affects marginalized individuals and exacerbates existing inequalities.",
+          "reason": "The context explicitly states that marginalized individuals are disproportionately affected by abortion criminalization, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Women from low-income backgrounds, racial and ethnic minorities, LGBTQ+ individuals, and those living in rural areas often face additional barriers to accessing safe and legal abortion services.",
+          "reason": "The context discusses how marginalized individuals, including those from low-income backgrounds and racial minorities, face barriers, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "These barriers further widen the gap between privileged and marginalized groups.",
+          "reason": "The context implies that the barriers faced by marginalized individuals contribute to widening inequalities, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Criminalizing abortion can lead to the criminalization of pregnancy itself in some cases.",
+          "reason": "The context mentions the potential for criminalization of pregnancy, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Criminalization of pregnancy can result in the surveillance and punishment of pregnant individuals.",
+          "reason": "The context discusses the surveillance and punishment of marginalized individuals for perceived harmful actions, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Marginalized communities may be subjected to invasive monitoring, discrimination, and even imprisonment for actions perceived as harmful to the fetus.",
+          "reason": "The context explicitly states that marginalized communities face invasive monitoring and discrimination, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "The criminalization of abortion can have significant psychological consequences for marginalized individuals.",
+          "reason": "The context discusses the psychological impact of stigma and shame associated with seeking illegal abortions, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Stigma and shame associated with seeking illegal abortions can lead to increased stress, anxiety, and depression.",
+          "reason": "The context explicitly states that stigma and shame can lead to increased mental health issues, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Criminalizing abortion perpetuates reproductive injustice by denying marginalized individuals the right to control their own bodies.",
+          "reason": "The context states that criminalization denies marginalized individuals control over their bodies, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "Marginalized individuals are denied the same reproductive rights and freedoms enjoyed by more privileged individuals.",
+          "reason": "The context discusses how marginalized individuals face barriers to reproductive rights, supporting this statement.",
+          "verdict": 1
+        },
+        {
+          "statement": "These consequences are not limited to criminalizing abortion alone but are often intertwined with broader social, economic, and healthcare disparities faced by marginalized communities.",
+          "reason": "The context implies that the consequences of criminalization are linked to broader disparities, supporting this statement.",
+          "verdict": 1
+        }
+      ],
+      "success": true
+    }
+  ]
+}

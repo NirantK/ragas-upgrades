@@ -100,7 +100,7 @@ Output: """
             }
         ],
         response_format=StatementGeneratorOutput,
-        temperature=1,
+        temperature=1e-8,
     )
 
     result = response.choices[0].message.parsed
@@ -146,7 +146,7 @@ Output: """
             }
         ],
         response_format=ClassificationWithReason,
-        temperature=1,
+        temperature=1e-8,
     )
 
     result = response.choices[0].message.parsed

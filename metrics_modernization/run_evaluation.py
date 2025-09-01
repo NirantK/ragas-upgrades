@@ -63,13 +63,15 @@ def load_dataset_by_name(
         if dataset_name.lower() == "fiqa":
             data.append({
                 "question": sample["question"],
-                "answer": sample["answer"], 
+                "answer": sample["answer"],
+                "ground_truth": sample["ground_truths"][0] if sample["ground_truths"] else "",
                 "contexts": "\n".join(sample["contexts"])
             })
         else:  # amnesty
             data.append({
                 "question": sample["user_input"],
                 "answer": sample["response"],
+                "ground_truth": sample["reference"],
                 "contexts": "\n".join(sample["retrieved_contexts"])
             })
     

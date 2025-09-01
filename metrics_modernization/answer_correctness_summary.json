@@ -1,0 +1,86 @@
+{
+  "timestamp": "2025-09-01T10:42:22.721475",
+  "total_jobs": 6,
+  "successful_jobs": 6,
+  "failed_jobs": 0,
+  "results": [
+    {
+      "metric": "answer_correctness",
+      "implementation": "modern_simplified",
+      "dataset": "amnesty",
+      "samples": 3,
+      "seed": 42,
+      "success": true,
+      "execution_time": 4.703657,
+      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/results/answer_correctness/amnesty/amnesty_data.json",
+      "average_score": null,
+      "num_samples": null,
+      "error_message": null
+    },
+    {
+      "metric": "answer_correctness",
+      "implementation": "modern_simplified",
+      "dataset": "fiqa",
+      "samples": 3,
+      "seed": 42,
+      "success": true,
+      "execution_time": 4.761835,
+      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/results/answer_correctness/fiqa/fiqa_data.json",
+      "average_score": null,
+      "num_samples": null,
+      "error_message": null
+    },
+    {
+      "metric": "answer_correctness",
+      "implementation": "current_ragas_main",
+      "dataset": "fiqa",
+      "samples": 3,
+      "seed": 42,
+      "success": true,
+      "execution_time": 22.43654,
+      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/results/answer_correctness/fiqa/fiqa_data.json",
+      "average_score": null,
+      "num_samples": null,
+      "error_message": null
+    },
+    {
+      "metric": "answer_correctness",
+      "implementation": "modern_exact_replica",
+      "dataset": "fiqa",
+      "samples": 3,
+      "seed": 42,
+      "success": true,
+      "execution_time": 18.7238,
+      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/results/answer_correctness/fiqa/fiqa_data.json",
+      "average_score": null,
+      "num_samples": null,
+      "error_message": null
+    },
+    {
+      "metric": "answer_correctness",
+      "implementation": "modern_exact_replica",
+      "dataset": "amnesty",
+      "samples": 3,
+      "seed": 42,
+      "success": true,
+      "execution_time": 30.584279,
+      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/results/answer_correctness/amnesty/amnesty_data.json",
+      "average_score": null,
+      "num_samples": null,
+      "error_message": null
+    },
+    {
+      "metric": "answer_correctness",
+      "implementation": "current_ragas_main",
+      "dataset": "amnesty",
+      "samples": 3,
+      "seed": 42,
+      "success": true,
+      "execution_time": 43.955733,
+      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/results/answer_correctness/amnesty/amnesty_data.json",
+      "average_score": null,
+      "num_samples": null,
+      "error_message": null
+    }
+  ]
+}

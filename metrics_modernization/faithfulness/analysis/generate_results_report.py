@@ -16,7 +16,7 @@ sns.set_context("paper", font_scale=1.2)
 
 def load_all_results():
     """Load all evaluation results from JSON files"""
-    results_dir = Path(__file__).parent / "results"
+    results_dir = Path(__file__).parent.parent / "results"
     
     files_mapping = {
         "amnesty_ragas_main.json": ("AmnestyQA", "Ragas Main"),
@@ -65,7 +65,7 @@ def load_all_results():
 
 def create_charts_directory():
     """Create charts directory if it doesn't exist"""
-    charts_dir = Path(__file__).parent / "charts"
+    charts_dir = Path(__file__).parent.parent / "charts"
     charts_dir.mkdir(exist_ok=True)
     return charts_dir
 

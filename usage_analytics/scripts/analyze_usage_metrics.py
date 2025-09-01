@@ -621,8 +621,8 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
 
-    project_root = Path(__file__).parent
-    usage_dir = project_root / "usage"
+    project_root = Path(__file__).parent.parent
+    usage_dir = project_root / "data"
     charts_dir = ensure_charts_dir(project_root)
 
     casefold_metrics = not args.no_casefold_metrics
@@ -641,8 +641,8 @@ def main() -> None:
     metrics_summary = aggregate_metrics(df_metrics)
 
     # CSV outputs at repo root
-    write_csv(events_summary, project_root / "usage_events_summary.csv")
-    write_csv(metrics_summary, project_root / "usage_metrics_summary.csv")
+    write_csv(events_summary, project_root / "data" / "usage_events_summary.csv")
+    write_csv(metrics_summary, project_root / "data" / "usage_metrics_summary.csv")
 
     # Charts
     events_chart = plot_events(events_summary, charts_dir)
@@ -653,8 +653,8 @@ def main() -> None:
     metrics_top30_rrf_chart = plot_top30_metrics_rrf(metrics_summary, charts_dir)
 
     print("✅ Aggregation complete")
-    print(f"Events summary -> {project_root / 'usage_events_summary.csv'}")
-    print(f"Metrics summary -> {project_root / 'usage_metrics_summary.csv'}")
+    print(f"Events summary -> {project_root / 'data' / 'usage_events_summary.csv'}")
+    print(f"Metrics summary -> {project_root / 'data' / 'usage_metrics_summary.csv'}")
     print(
         "Charts saved -> ",
         events_chart,

@@ -6,7 +6,7 @@ from pathlib import Path
 
 def load_results():
     """Load all evaluation results"""
-    results_dir = Path(__file__).parent / "results"
+    results_dir = Path(__file__).parent.parent / "results"
     
     results = {}
     

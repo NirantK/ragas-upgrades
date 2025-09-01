@@ -23,11 +23,11 @@ def load_all_results():
 
     files_mapping = {
         "amnesty_ragas_main.json": ("AmnestyQA", "Ragas Main"),
-        "amnesty_ragas_experimental.json": ("AmnestyQA", "Original Experimental"),
-        "amnesty_ragas_experimental_exact.json": ("AmnestyQA", "Exact Replica"),
+        "amnesty_modern_simplified.json": ("AmnestyQA", "Modern Simplified"),
+        "amnesty_modern_exact_replica.json": ("AmnestyQA", "Modern Exact Replica"),
         "fiqa_ragas_main.json": ("FIQA", "Ragas Main"),
-        "fiqa_ragas_experimental.json": ("FIQA", "Original Experimental"),
-        "fiqa_ragas_experimental_exact.json": ("FIQA", "Exact Replica"),
+        "fiqa_modern_simplified.json": ("FIQA", "Modern Simplified"),
+        "fiqa_modern_exact_replica.json": ("FIQA", "Modern Exact Replica"),
     }
 
     all_data = []
@@ -396,8 +396,8 @@ def generate_markdown_report(df_summary, charts_dir):
 
 This report presents a comprehensive analysis of faithfulness evaluation implementations across three approaches:
 1. **Ragas Main** - The original implementation in the main Ragas framework
-2. **Original Experimental** - Initial experimental implementation with single-step evaluation
-3. **Exact Replica** - Refined experimental implementation matching Ragas Main methodology exactly
+2. **Modern Simplified** - Modern implementation with single-step evaluation
+3. **Modern Exact Replica** - Modern implementation matching Ragas Main methodology exactly
 
 ### Key Achievements
 

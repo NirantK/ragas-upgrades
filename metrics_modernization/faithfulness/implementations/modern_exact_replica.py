@@ -1,5 +1,5 @@
 """
-Exact replica of Ragas Main faithfulness evaluation using two-step process
+Exact replica of Ragas Main faithfulness evaluation using official prompts
 Supports both AmnestyQA and FIQA datasets via CLI
 """
 
@@ -72,13 +72,11 @@ def load_preprocessed_data(data_file_path: str) -> tuple[List[Dict[str, Any]], s
 
 
 async def generate_statements(
-    client: AsyncOpenAI, question: str, answer: str
+    client: AsyncOpenAI, question: str, answer: str, model: str = "gpt-5-mini-2025-08-07"
 ) -> List[str]:
     """Step 1: Generate statements from answer using exact Ragas Main prompt"""
 
     statement_prompt = """Given a question and an answer, analyze the complexity of each sentence in the answer. Break down each sentence into one or more fully understandable statements. Ensure that no pronouns are used in any statement. Format the outputs in JSON.
-Please return the output in a JSON format that complies with the following schema as specified in JSON Schema:
-{{"$defs": {{"StatementGeneratorOutput": {{"properties": {{"statements": {{"description": "The generated statements", "items": {{"type": "string"}}, "title": "Statements", "type": "array"}}}}, "required": ["statements"], "title": "StatementGeneratorOutput", "type": "object"}}}}, "$ref": "#/$defs/StatementGeneratorOutput"}}Do not use single quotes in your response but double quotes,properly escaped with a backslash.
 
 --------EXAMPLES-----------
 Example 1
@@ -91,7 +89,7 @@ input: {{"question": "{question}", "answer": "{answer}"}}
 Output: """
 
     response = await client.beta.chat.completions.parse(
-        model="gpt-4o-mini",
+        model=model,
         messages=[
             {
                 "role": "user",
@@ -99,7 +97,7 @@ Output: """
             }
         ],
         response_format=StatementGeneratorOutput,
-        temperature=1e-8,
+        temperature=1,
     )
 
     result = response.choices[0].message.parsed
@@ -107,13 +105,11 @@ Output: """
 
 
 async def evaluate_statements_nli(
-    client: AsyncOpenAI, context: str, statements: List[str]
+    client: AsyncOpenAI, context: str, statements: List[str], model: str = "gpt-5-mini-2025-08-07"
 ) -> List[StatementFaithfulnessAnswer]:
     """Step 2: Evaluate statements using exact Ragas Main NLI prompt"""
 
     nli_prompt = """Your task is to judge the faithfulness of a series of statements based on a given context. For each statement you must return verdict as 1 if the statement can be directly inferred based on the context or 0 if the statement can not be directly inferred based on the context.
-Please return the output in a JSON format that complies with the following schema as specified in JSON Schema:
-{{"$defs": {{"NLIStatementOutput": {{"properties": {{"statements": {{"items": {{"$ref": "#/$defs/StatementFaithfulnessAnswer"}}, "title": "Statements", "type": "array"}}}}, "required": ["statements"], "title": "NLIStatementOutput", "type": "object"}}, "StatementFaithfulnessAnswer": {{"properties": {{"reason": {{"description": "the reason of the verdict", "title": "Reason", "type": "string"}}, "statement": {{"description": "the original statement, word-by-word", "title": "Statement", "type": "string"}}, "verdict": {{"description": "the verdict(0/1) of the faithfulness.", "title": "Verdict", "type": "integer"}}}}, "required": ["statement", "reason", "verdict"], "title": "StatementFaithfulnessAnswer", "type": "object"}}}}, "$ref": "#/$defs/NLIStatementOutput"}}Do not use single quotes in your response but double quotes,properly escaped with a backslash.
 
 --------EXAMPLES-----------
 Example 1
@@ -134,7 +130,7 @@ Output: """
     statements_json = json.dumps(statements)
 
     response = await client.beta.chat.completions.parse(
-        model="gpt-4o-mini",
+        model=model,
         messages=[
             {
                 "role": "user",
@@ -144,7 +140,7 @@ Output: """
             }
         ],
         response_format=NLIStatementOutput,
-        temperature=1e-8,
+        temperature=1,
     )
 
     result = response.choices[0].message.parsed
@@ -152,7 +148,7 @@ Output: """
 
 
 async def evaluate_sample_faithfulness_exact(
-    client: AsyncOpenAI, sample: Dict[str, Any]
+    client: AsyncOpenAI, sample: Dict[str, Any], model: str = "gpt-5-mini-2025-08-07"
 ) -> Dict[str, Any]:
     """Evaluate faithfulness using exact Ragas Main two-step process"""
 
@@ -220,7 +216,7 @@ def save_results(
     results_data = {
         "timestamp": datetime.now().isoformat(),
         "dataset": dataset_display_name,
-        "framework": "ragas_experimental_exact",
+        "framework": "modern_exact_replica",
         "metric": "faithfulness",
         "num_samples": len(results),
         "num_successful": len(valid_scores),
@@ -238,7 +234,7 @@ def save_results(
 async def main():
     """Main execution function"""
     parser = argparse.ArgumentParser(
-        description="Evaluate faithfulness using Exact Ragas Main Replica"
+        description="Evaluate faithfulness using Modern Exact Replica"
     )
     parser.add_argument(
         "--dataset",
@@ -259,11 +255,17 @@ async def main():
         default="results",
         help="Output directory for results (default: results)",
     )
+    parser.add_argument(
+        "--model",
+        type=str,
+        default="gpt-5-mini-2025-08-07",
+        help="Model to use for evaluation (default: gpt-5-mini-2025-08-07)",
+    )
 
     args = parser.parse_args()
 
     logger.info(
-        f"Starting {args.dataset.upper()} faithfulness evaluation with Exact Ragas Main Replica"
+        f"Starting {args.dataset.upper()} faithfulness evaluation with Modern Exact Replica"
     )
 
     import os
@@ -278,7 +280,7 @@ async def main():
     results_dir = script_dir.parent / args.output_dir
     results_dir.mkdir(parents=True, exist_ok=True)
 
-    output_filename = f"{args.dataset}_ragas_experimental_exact.json"
+    output_filename = f"{args.dataset}_modern_exact_replica.json"
     output_path = results_dir / output_filename
     save_results(results, dataset_display_name, str(output_path))
 
@@ -291,7 +293,7 @@ async def main():
     ]
     if valid_scores:
         print(
-            f"\n=== {dataset_display_name} Faithfulness Evaluation Results (Exact Replica) ==="
+            f"\n=== {dataset_display_name} Faithfulness Evaluation Results (Modern Exact Replica) ==="
         )
         print(
             f"Average Faithfulness Score: {sum(valid_scores) / len(valid_scores):.4f}"

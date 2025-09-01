@@ -1,5 +1,5 @@
 """
-Simplified faithfulness evaluation using direct OpenAI calls (mimicking ragas experimental approach)
+Simplified faithfulness evaluation using direct OpenAI calls (modern simplified approach)
 Supports both AmnestyQA and FIQA datasets via CLI
 """
 
@@ -48,7 +48,7 @@ def load_preprocessed_data(data_file_path: str) -> tuple[List[Dict[str, Any]], s
 
 
 async def evaluate_sample_faithfulness(
-    client: AsyncOpenAI, sample: Dict[str, Any]
+    client: AsyncOpenAI, sample: Dict[str, Any], model: str = "gpt-5-mini-2025-08-07"
 ) -> Dict[str, Any]:
     """Evaluate faithfulness for a single sample using OpenAI"""
 
@@ -69,10 +69,10 @@ Provide your evaluation as a JSON object with 'value' (float between 0 and 1) an
 """
 
     response = await client.beta.chat.completions.parse(
-        model="gpt-4o-mini",
+        model=model,
         messages=[{"role": "user", "content": prompt}],
         response_format=FaithfulnessResponse,
-        temperature=0,
+        temperature=1,
     )
 
     result = response.choices[0].message.parsed
@@ -84,14 +84,14 @@ Provide your evaluation as a JSON object with 'value' (float between 0 and 1) an
     }
 
 
-async def evaluate_faithfulness_experimental(
-    data: List[Dict[str, Any]], client: AsyncOpenAI
+async def evaluate_faithfulness_modern_simplified(
+    data: List[Dict[str, Any]], client: AsyncOpenAI, model: str = "gpt-5-mini-2025-08-07"
 ) -> List[Dict[str, Any]]:
-    """Evaluate faithfulness using experimental approach"""
-    logger.info("Starting faithfulness evaluation with experimental approach...")
+    """Evaluate faithfulness using modern simplified approach"""
+    logger.info("Starting faithfulness evaluation with modern simplified approach...")
 
     # Process samples concurrently
-    tasks = [evaluate_sample_faithfulness(client, sample) for sample in data]
+    tasks = [evaluate_sample_faithfulness(client, sample, model) for sample in data]
     results = await asyncio.gather(*tasks)
 
     logger.info("Faithfulness evaluation completed")
@@ -114,7 +114,7 @@ def save_results(
     results_data = {
         "timestamp": datetime.now().isoformat(),
         "dataset": dataset_display_name,
-        "framework": "ragas_experimental_simple",
+        "framework": "modern_simplified",
         "metric": "faithfulness",
         "num_samples": len(results),
         "num_successful": len(valid_scores),
@@ -132,7 +132,7 @@ def save_results(
 async def main():
     """Main execution function"""
     parser = argparse.ArgumentParser(
-        description="Evaluate faithfulness using Simplified Experimental Approach"
+        description="Evaluate faithfulness using Modern Simplified Approach"
     )
     parser.add_argument(
         "--dataset",
@@ -153,11 +153,17 @@ async def main():
         default="results",
         help="Output directory for results (default: results)",
     )
+    parser.add_argument(
+        "--model",
+        type=str,
+        default="gpt-5-mini-2025-08-07",
+        help="Model to use for evaluation (default: gpt-5-mini-2025-08-07)",
+    )
 
     args = parser.parse_args()
 
     logger.info(
-        f"Starting {args.dataset.upper()} faithfulness evaluation with Experimental Approach"
+        f"Starting {args.dataset.upper()} faithfulness evaluation with Modern Simplified Approach"
     )
 
     import os
@@ -166,13 +172,13 @@ async def main():
 
     data, dataset_display_name, total_samples = load_preprocessed_data(args.data_file)
 
-    results = await evaluate_faithfulness_experimental(data, client)
+    results = await evaluate_faithfulness_modern_simplified(data, client, args.model)
 
     script_dir = Path(__file__).parent
     results_dir = script_dir.parent / args.output_dir
     results_dir.mkdir(parents=True, exist_ok=True)
 
-    output_filename = f"{args.dataset}_ragas_experimental.json"
+    output_filename = f"{args.dataset}_modern_simplified.json"
     output_path = results_dir / output_filename
     save_results(results, dataset_display_name, str(output_path))
 
@@ -183,7 +189,7 @@ async def main():
     ]
     if valid_scores:
         print(
-            f"\n=== {dataset_display_name} Faithfulness Evaluation Results (Experimental) ==="
+            f"\n=== {dataset_display_name} Faithfulness Evaluation Results (Modern Simplified) ==="
         )
         print(
             f"Average Faithfulness Score: {sum(valid_scores) / len(valid_scores):.4f}"

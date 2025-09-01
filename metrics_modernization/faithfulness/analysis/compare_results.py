@@ -1,5 +1,5 @@
 """
-Compare faithfulness evaluation results between Ragas Main and Experimental approaches
+Compare faithfulness evaluation results between Ragas Main and Modern approaches
 """
 
 import json
@@ -14,11 +14,11 @@ def load_results():
 
     files = [
         ("amnesty_ragas_main.json", "AmnestyQA", "Ragas Main"),
-        ("amnesty_ragas_experimental.json", "AmnestyQA", "Experimental"),
-        ("amnesty_ragas_experimental_exact.json", "AmnestyQA", "Exact Replica"),
+        ("amnesty_modern_simplified.json", "AmnestyQA", "Modern Simplified"),
+        ("amnesty_modern_exact_replica.json", "AmnestyQA", "Modern Exact Replica"),
         ("fiqa_ragas_main.json", "FIQA", "Ragas Main"),
-        ("fiqa_ragas_experimental.json", "FIQA", "Experimental"),
-        ("fiqa_ragas_experimental_exact.json", "FIQA", "Exact Replica"),
+        ("fiqa_modern_simplified.json", "FIQA", "Modern Simplified"),
+        ("fiqa_modern_exact_replica.json", "FIQA", "Modern Exact Replica"),
     ]
 
     for filename, dataset, framework in files:
@@ -40,7 +40,7 @@ def print_summary(results):
     print("=" * 80)
 
     datasets = ["AmnestyQA", "FIQA"]
-    frameworks = ["Ragas Main", "Experimental", "Exact Replica"]
+    frameworks = ["Ragas Main", "Modern Simplified", "Modern Exact Replica"]
 
     for dataset in datasets:
         print(f"\n{dataset} Dataset:")
@@ -70,8 +70,8 @@ def print_summary(results):
 
     for dataset in datasets:
         main_key = f"{dataset}_Ragas Main"
-        exp_key = f"{dataset}_Experimental"
-        exact_key = f"{dataset}_Exact Replica"
+        exp_key = f"{dataset}_Modern Simplified"
+        exact_key = f"{dataset}_Modern Exact Replica"
 
         if main_key in results and exp_key in results:
             main_data = results[main_key]
@@ -81,10 +81,10 @@ def print_summary(results):
             exp_scores = exp_data.get("scores", [])
 
             print(
-                f"\n{dataset} - Score Comparison (Ragas Main vs Original Experimental):"
+                f"\n{dataset} - Score Comparison (Ragas Main vs Modern Simplified):"
             )
-            print("  Sample  | Ragas Main | Experimental | Difference")
-            print("  --------|------------|--------------|----------")
+            print("  Sample  | Ragas Main | Modern Simplified | Difference")
+            print("  --------|------------|---------------|----------")
 
             for i, (main_score, exp_score) in enumerate(zip(main_scores, exp_scores)):
                 diff = (
@@ -114,9 +114,9 @@ def print_summary(results):
             main_scores = main_data.get("scores", [])
             exact_scores = exact_data.get("scores", [])
 
-            print(f"\n{dataset} - Score Comparison (Ragas Main vs Exact Replica):")
-            print("  Sample  | Ragas Main | Exact Replica | Difference")
-            print("  --------|------------|---------------|----------")
+            print(f"\n{dataset} - Score Comparison (Ragas Main vs Modern Exact Replica):")
+            print("  Sample  | Ragas Main | Modern Exact Replica | Difference")
+            print("  --------|------------|------------------|----------")
 
             for i, (main_score, exact_score) in enumerate(
                 zip(main_scores, exact_scores)

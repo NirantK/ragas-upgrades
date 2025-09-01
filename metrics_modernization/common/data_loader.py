@@ -1,9 +1,4 @@
-"""
-Centralized data loading utilities for metrics modernization.
-
-This module consolidates all dataset loading logic that was duplicated across
-implementation files, providing a single source of truth for data handling.
-"""
+"""Centralized data loading utilities for metrics modernization."""
 
 import json
 from pathlib import Path
@@ -18,24 +13,16 @@ from .exceptions import DataLoadError, DataValidationError, DatasetNotFoundError
 
 
 class DataLoader:
-    """Centralized data loading and processing."""
-    
     @staticmethod
     def load_dataset_from_hf(
         dataset_name: str, 
         num_samples: Optional[int] = None,
         random_seed: int = 42
     ) -> Tuple[List[Dict[str, Any]], str, int]:
-        """Load dataset from HuggingFace and normalize format."""
-        
-        # Validate dataset is supported
         Config.validate_dataset_support(dataset_name)
         dataset_config = Config.get_dataset_config(dataset_name)
         
-        logger.info(f"Loading {dataset_config.display_name} dataset from HuggingFace")
-        
         try:
-            # Load from HuggingFace
             if dataset_config.hf_config:
                 hf_dataset = load_dataset(
                     dataset_config.hf_name, 
@@ -44,41 +31,28 @@ class DataLoader:
             else:
                 hf_dataset = load_dataset(dataset_config.hf_name)[dataset_config.split]
                 
-            # Sample if requested
             if num_samples is not None:
                 max_samples = min(num_samples, len(hf_dataset))
                 hf_dataset = hf_dataset.shuffle(seed=random_seed).select(range(max_samples))
-                logger.info(f"Sampled {max_samples}/{len(hf_dataset)} samples")
-            else:
-                logger.info(f"Using complete dataset: {len(hf_dataset)} samples")
                 
         except Exception as e:
             raise DataLoadError(f"HuggingFace:{dataset_config.hf_name}", str(e))
         
-        # Normalize data format
         normalized_data = []
         for sample in hf_dataset:
             try:
                 normalized_sample = DataLoader._normalize_sample(sample, dataset_config)
                 normalized_data.append(normalized_sample)
-            except Exception as e:
-                logger.warning(f"Failed to normalize sample, skipping: {e}")
+            except Exception:
                 continue
         
         if not normalized_data:
-            raise DataLoadError(
-                dataset_config.hf_name,
-                "No valid samples found after normalization"
-            )
+            raise DataLoadError(dataset_config.hf_name, "No valid samples found after normalization")
         
         return normalized_data, dataset_config.display_name, len(normalized_data)
     
     @staticmethod
     def load_from_preprocessed_file(data_file_path: str) -> Tuple[List[Dict[str, Any]], str, int]:
-        """Load data from preprocessed JSON file."""
-        
-        logger.info(f"Loading preprocessed data from {data_file_path}")
-        
         if not Path(data_file_path).exists():
             raise DataLoadError(data_file_path, "File does not exist")
             
@@ -90,7 +64,6 @@ class DataLoader:
         except Exception as e:
             raise DataLoadError(data_file_path, f"File read error: {e}")
         
-        # Validate expected structure
         required_keys = ["data", "dataset_name", "total_samples"]
         for key in required_keys:
             if key not in dataset_info:
@@ -100,16 +73,11 @@ class DataLoader:
         dataset_name = dataset_info["dataset_name"]
         total_samples = dataset_info["total_samples"]
         
-        # Validate data samples
         DataLoader._validate_data_samples(data)
-        
-        logger.info(f"Loaded {total_samples} samples from {dataset_name}")
         return data, dataset_name, total_samples
     
     @staticmethod
     def convert_to_ragas_format(data: List[Dict[str, Any]]) -> EvaluationDataset:
-        """Convert normalized data to Ragas EvaluationDataset format."""
-        
         eval_data = []
         for sample in data:
             ragas_sample = {
@@ -117,9 +85,7 @@ class DataLoader:
                 "response": sample["answer"]
             }
             
-            # Add contexts if available
             if "contexts" in sample and sample["contexts"]:
-                # Ensure contexts is a list for Ragas
                 contexts = sample["contexts"]
                 if isinstance(contexts, str):
                     ragas_sample["retrieved_contexts"] = [contexts]
@@ -128,7 +94,6 @@ class DataLoader:
                 else:
                     ragas_sample["retrieved_contexts"] = [str(contexts)]
             
-            # Add ground truth if available  
             if "ground_truth" in sample and sample["ground_truth"]:
                 ragas_sample["reference"] = sample["ground_truth"]
                 

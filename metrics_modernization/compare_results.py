@@ -1,8 +1,4 @@
-"""
-Universal comparison tool for evaluation results (faithfulness, answer_relevance, etc.)
-
-Refactored to use shared utilities and remove hard-coded paths.
-"""
+"""Universal comparison tool for evaluation results"""
 
 import argparse
 from pathlib import Path
@@ -14,18 +10,13 @@ from common.exceptions import DataLoadError
 
 
 class ResultsComparator:
-    """Centralized results comparison utility."""
-    
     def __init__(self, metric: str):
         self.metric = metric
         self.results_dir = Path(__file__).parent / metric / "results"
         self.metric_field = Config.get_metric_field_name(metric)
     
     def load_all_results(self) -> Dict[str, Any]:
-        """Load all evaluation results for the metric"""
         results = {}
-        
-        # Standard file patterns
         files = [
             ("amnesty_ragas_main.json", "AmnestyQA", "Ragas Main"),
             ("amnesty_modern_simplified.json", "AmnestyQA", "Modern Simplified"),
@@ -36,7 +27,6 @@ class ResultsComparator:
         ]
         
         for filename, dataset, framework in files:
-            # Determine subdirectory based on dataset
             dataset_subdir = "amnesty" if "amnesty" in filename else "fiqa"
             filepath = self.results_dir / dataset_subdir / filename
             
@@ -44,11 +34,8 @@ class ResultsComparator:
             if filepath.exists():
                 try:
                     results[key] = ResultSaver.load_results(str(filepath))
-                except DataLoadError as e:
-                    print(f"Warning: Failed to load {filepath}: {e}")
+                except DataLoadError:
                     continue
-            else:
-                print(f"Warning: {filepath} not found")
         
         return results
     

@@ -1,163 +1,174 @@
 """
 Universal comparison tool for evaluation results (faithfulness, answer_relevance, etc.)
+
+Refactored to use shared utilities and remove hard-coded paths.
 """
 
 import argparse
-import json
 from pathlib import Path
 from typing import Dict, List, Any
 
-
-def load_results(metric: str) -> Dict[str, Any]:
-    """Load all evaluation results for a specific metric"""
-    results_dir = Path(__file__).parent / metric / "results"
-
-    results = {}
-
-    files = [
-        (f"amnesty_ragas_main.json", "AmnestyQA", "Ragas Main"),
-        (f"amnesty_modern_simplified.json", "AmnestyQA", "Modern Simplified"),
-        (f"amnesty_modern_exact_replica.json", "AmnestyQA", "Modern Exact Replica"),
-        (f"fiqa_ragas_main.json", "FIQA", "Ragas Main"),
-        (f"fiqa_modern_simplified.json", "FIQA", "Modern Simplified"),
-        (f"fiqa_modern_exact_replica.json", "FIQA", "Modern Exact Replica"),
-    ]
-
-    for filename, dataset, framework in files:
-        # Determine subdirectory based on dataset
-        dataset_subdir = "amnesty" if "amnesty" in filename else "fiqa"
-        filepath = results_dir / dataset_subdir / filename
-        if filepath.exists():
-            with open(filepath, "r") as f:
-                data = json.load(f)
-                results[f"{dataset}_{framework}"] = data
-        else:
-            print(f"Warning: {filepath} not found")
-
-    return results
+from common.config import Config
+from common.result_saver import ResultSaver
+from common.exceptions import DataLoadError
 
 
-def get_metric_column_name(metric: str) -> str:
-    """Get the appropriate column name for the metric"""
-    metric_columns = {
-        "faithfulness": "average_faithfulness",
-        "answer_relevance": "average_answer_relevance",
-        "answer_correctness": "average_answer_correctness",
-    }
-    return metric_columns.get(metric, f"average_{metric}")
-
-
-def print_summary(results: Dict[str, Any], metric: str):
-    """Print comparison summary"""
-    metric_column = get_metric_column_name(metric)
+class ResultsComparator:
+    """Centralized results comparison utility."""
     
-    print("=" * 80)
-    print(f"{metric.upper().replace('_', ' ')} EVALUATION RESULTS COMPARISON")
-    print("=" * 80)
-
-    datasets = ["AmnestyQA", "FIQA"]
-    frameworks = ["Ragas Main", "Modern Simplified", "Modern Exact Replica"]
-
-    for dataset in datasets:
-        print(f"\n{dataset} Dataset:")
-        print("-" * 40)
-
-        for framework in frameworks:
+    def __init__(self, metric: str):
+        self.metric = metric
+        self.results_dir = Path(__file__).parent / metric / "results"
+        self.metric_field = Config.get_metric_field_name(metric)
+    
+    def load_all_results(self) -> Dict[str, Any]:
+        """Load all evaluation results for the metric"""
+        results = {}
+        
+        # Standard file patterns
+        files = [
+            ("amnesty_ragas_main.json", "AmnestyQA", "Ragas Main"),
+            ("amnesty_modern_simplified.json", "AmnestyQA", "Modern Simplified"),
+            ("amnesty_modern_exact_replica.json", "AmnestyQA", "Modern Exact Replica"),
+            ("fiqa_ragas_main.json", "FIQA", "Ragas Main"),
+            ("fiqa_modern_simplified.json", "FIQA", "Modern Simplified"),
+            ("fiqa_modern_exact_replica.json", "FIQA", "Modern Exact Replica"),
+        ]
+        
+        for filename, dataset, framework in files:
+            # Determine subdirectory based on dataset
+            dataset_subdir = "amnesty" if "amnesty" in filename else "fiqa"
+            filepath = self.results_dir / dataset_subdir / filename
+            
             key = f"{dataset}_{framework}"
-            if key in results:
-                data = results[key]
-                avg_score = data.get(metric_column, "N/A")
-                num_samples = data.get("num_samples", "N/A")
-                num_successful = data.get("num_successful", num_samples)
-
-                print(f"  {framework}:")
-                if isinstance(avg_score, float):
-                    print(f"    Average Score: {avg_score:.4f}")
-                else:
-                    print(f"    Average Score: {avg_score}")
-                print(f"    Samples: {num_successful}/{num_samples}")
-                print(f"    Timestamp: {data.get('timestamp', 'N/A')}")
+            if filepath.exists():
+                try:
+                    results[key] = ResultSaver.load_results(str(filepath))
+                except DataLoadError as e:
+                    print(f"Warning: Failed to load {filepath}: {e}")
+                    continue
             else:
-                print(f"  {framework}: No data available")
+                print(f"Warning: {filepath} not found")
+        
+        return results
+    
+    def print_summary(self, results: Dict[str, Any]):
+        """Print comparison summary"""
+        print("=" * 80)
+        print(f"{self.metric.upper().replace('_', ' ')} EVALUATION RESULTS COMPARISON")
+        print("=" * 80)
 
-    print("\n" + "=" * 80)
-    print("DETAILED COMPARISON")
-    print("=" * 80)
+        datasets = ["AmnestyQA", "FIQA"]
+        frameworks = ["Ragas Main", "Modern Simplified", "Modern Exact Replica"]
 
-    for dataset in datasets:
-        main_key = f"{dataset}_Ragas Main"
-        exp_key = f"{dataset}_Modern Simplified"
-        exact_key = f"{dataset}_Modern Exact Replica"
+        for dataset in datasets:
+            print(f"\n{dataset} Dataset:")
+            print("-" * 40)
 
-        if main_key in results and exp_key in results:
-            main_data = results[main_key]
-            exp_data = results[exp_key]
+            for framework in frameworks:
+                key = f"{dataset}_{framework}"
+                if key in results:
+                    data = results[key]
+                    avg_score = data.get(self.metric_field, "N/A")
+                    num_samples = data.get("num_samples", "N/A")
+                    num_successful = data.get("num_successful", num_samples)
 
-            main_scores = main_data.get("scores", [])
-            exp_scores = exp_data.get("scores", [])
+                    print(f"  {framework}:")
+                    if isinstance(avg_score, float):
+                        print(f"    Average Score: {avg_score:.4f}")
+                    else:
+                        print(f"    Average Score: {avg_score}")
+                    print(f"    Samples: {num_successful}/{num_samples}")
+                    print(f"    Timestamp: {data.get('timestamp', 'N/A')}")
+                else:
+                    print(f"  {framework}: No data available")
+    
+    def print_detailed_comparison(self, results: Dict[str, Any]):
+        """Print detailed score comparison"""
+        print("\n" + "=" * 80)
+        print("DETAILED COMPARISON")
+        print("=" * 80)
 
-            print(
-                f"\n{dataset} - Score Comparison (Ragas Main vs Modern Simplified):"
+        datasets = ["AmnestyQA", "FIQA"]
+
+        for dataset in datasets:
+            main_key = f"{dataset}_Ragas Main"
+            simplified_key = f"{dataset}_Modern Simplified"
+            exact_key = f"{dataset}_Modern Exact Replica"
+
+            # Compare Main vs Simplified
+            if main_key in results and simplified_key in results:
+                self._compare_implementations(
+                    results[main_key], 
+                    results[simplified_key],
+                    dataset,
+                    "Ragas Main",
+                    "Modern Simplified"
+                )
+
+            # Compare Main vs Exact Replica
+            if main_key in results and exact_key in results:
+                self._compare_implementations(
+                    results[main_key], 
+                    results[exact_key],
+                    dataset,
+                    "Ragas Main", 
+                    "Modern Exact Replica",
+                    exact_match_check=True
+                )
+    
+    def _compare_implementations(
+        self, 
+        main_data: Dict[str, Any],
+        other_data: Dict[str, Any], 
+        dataset: str,
+        main_label: str,
+        other_label: str,
+        exact_match_check: bool = False
+    ):
+        """Compare two implementations"""
+        main_scores = main_data.get("scores", [])
+        other_scores = other_data.get("scores", [])
+
+        if not main_scores or not other_scores:
+            print(f"\n{dataset} - No scores available for comparison")
+            return
+
+        print(f"\n{dataset} - Score Comparison ({main_label} vs {other_label}):")
+        
+        # Adjust header width based on label length
+        other_width = max(len(other_label), 12)
+        print(f"  {'Sample':<7} | {'Ragas Main':<11} | {other_label:<{other_width}} | Difference")
+        print(f"  {'-' * 7}|{'-' * 13}|{'-' * (other_width + 2)}|{'-' * 10}")
+
+        # Compare sample by sample
+        for i, (main_score, other_score) in enumerate(zip(main_scores, other_scores)):
+            diff = (
+                other_score - main_score
+                if isinstance(main_score, (int, float))
+                and isinstance(other_score, (int, float))
+                else "N/A"
             )
-            print("  Sample  | Ragas Main | Modern Simplified | Difference")
-            print("  --------|------------|-------------------|----------")
+            diff_str = f"{diff:+.4f}" if isinstance(diff, (int, float)) else diff
+            print(
+                f"  {i + 1:6d}  | {main_score:10.4f} | {other_score:{other_width}.4f} | {diff_str:>10}"
+            )
 
-            for i, (main_score, exp_score) in enumerate(zip(main_scores, exp_scores)):
-                diff = (
-                    exp_score - main_score
-                    if isinstance(main_score, (int, float))
-                    and isinstance(exp_score, (int, float))
-                    else "N/A"
-                )
-                diff_str = f"{diff:+.4f}" if isinstance(diff, (int, float)) else diff
-                print(
-                    f"  {i + 1:6d}  | {main_score:10.4f} | {exp_score:12.4f} | {diff_str:>10}"
-                )
-
-            if main_scores and exp_scores:
-                main_avg = sum(main_scores) / len(main_scores)
-                exp_avg = sum(exp_scores) / len(exp_scores)
-                avg_diff = exp_avg - main_avg
-                print("  --------|------------|-------------------|----------")
-                print(
-                    f"  Average | {main_avg:10.4f} | {exp_avg:12.4f} | {avg_diff:+10.4f}"
-                )
-
-        if main_key in results and exact_key in results:
-            main_data = results[main_key]
-            exact_data = results[exact_key]
-
-            main_scores = main_data.get("scores", [])
-            exact_scores = exact_data.get("scores", [])
-
-            print(f"\n{dataset} - Score Comparison (Ragas Main vs Modern Exact Replica):")
-            print("  Sample  | Ragas Main | Modern Exact Replica | Difference")
-            print("  --------|------------|----------------------|----------")
-
-            for i, (main_score, exact_score) in enumerate(
-                zip(main_scores, exact_scores)
-            ):
-                diff = (
-                    exact_score - main_score
-                    if isinstance(main_score, (int, float))
-                    and isinstance(exact_score, (int, float))
-                    else "N/A"
-                )
-                diff_str = f"{diff:+.4f}" if isinstance(diff, (int, float)) else diff
-                print(
-                    f"  {i + 1:6d}  | {main_score:10.4f} | {exact_score:13.4f} | {diff_str:>10}"
-                )
-
-            if main_scores and exact_scores:
-                main_avg = sum(main_scores) / len(main_scores)
-                exact_avg = sum(exact_scores) / len(exact_scores)
-                avg_diff = exact_avg - main_avg
+        # Calculate averages
+        if main_scores and other_scores:
+            main_avg = sum(main_scores) / len(main_scores)
+            other_avg = sum(other_scores) / len(other_scores)
+            avg_diff = other_avg - main_avg
+            
+            print(f"  {'-' * 7}|{'-' * 13}|{'-' * (other_width + 2)}|{'-' * 10}")
+            print(
+                f"  Average | {main_avg:10.4f} | {other_avg:{other_width}.4f} | {avg_diff:+10.4f}"
+            )
+            
+            # Exact match validation for replica
+            if exact_match_check:
                 abs_diff = abs(avg_diff)
                 target_met = "✓ ACHIEVED" if abs_diff < 0.01 else "✗ TARGET NOT MET"
-                print("  --------|------------|----------------------|----------")
-                print(
-                    f"  Average | {main_avg:10.4f} | {exact_avg:13.4f} | {avg_diff:+10.4f}"
-                )
                 print(f"  Abs Diff: {abs_diff:.4f} (<0.01 target) - {target_met}")
 
 
@@ -169,20 +180,26 @@ def main():
     parser.add_argument(
         "--metric",
         type=str,
-        choices=["faithfulness", "answer_relevance", "answer_correctness", "context_recall", "context_precision"],
+        choices=list(Config.METRIC_FIELD_NAMES.keys()),
         required=True,
-        help="Metric to compare (faithfulness, answer_relevance, answer_correctness, context_recall, or context_precision)",
+        help=f"Metric to compare ({', '.join(Config.METRIC_FIELD_NAMES.keys())})"
     )
 
     args = parser.parse_args()
 
-    results = load_results(args.metric)
+    # Create comparator for the metric
+    comparator = ResultsComparator(args.metric)
+    
+    # Load results
+    results = comparator.load_all_results()
 
     if not results:
         print(f"No results found for {args.metric}. Make sure evaluations have been run.")
         return
 
-    print_summary(results, args.metric)
+    # Print comparison
+    comparator.print_summary(results)
+    comparator.print_detailed_comparison(results)
 
     print(f"\n\n{args.metric.replace('_', ' ').title()} results loaded from:")
     for key in results.keys():

@@ -1,26 +1,31 @@
 """
 Simplified faithfulness evaluation using direct OpenAI calls (modern simplified approach)
 Supports both AmnestyQA and FIQA datasets via CLI
+
+Refactored to use shared utilities for better maintainability.
 """
 
-import argparse
 import asyncio
-import json
-import logging
-from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List
 
 from dotenv import load_dotenv
+from loguru import logger
 from openai import AsyncOpenAI
 from pydantic import BaseModel, Field
 
+from common.cli_utils import (
+    create_metric_parser,
+    get_output_filename, 
+    print_evaluation_summary,
+    validate_common_args,
+)
+from common.config import Config
+from common.data_loader import DataLoader
+from common.result_saver import ResultSaver
+
 # Load environment variables
 load_dotenv()
-
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 
 class FaithfulnessResponse(BaseModel):
@@ -32,23 +37,8 @@ class FaithfulnessResponse(BaseModel):
     reason: str = Field(..., description="Reasoning for the faithfulness score")
 
 
-def load_preprocessed_data(data_file_path: str) -> tuple[List[Dict[str, Any]], str, int]:
-    """Load preprocessed data from centralized data file"""
-    logger.info(f"Loading preprocessed data from {data_file_path}")
-    
-    with open(data_file_path, 'r') as f:
-        dataset_info = json.load(f)
-    
-    data = dataset_info["data"]
-    dataset_name = dataset_info["dataset_name"]
-    total_samples = dataset_info["total_samples"]
-    
-    logger.info(f"Loaded {total_samples} samples from {dataset_name}")
-    return data, dataset_name, total_samples
-
-
 async def evaluate_sample_faithfulness(
-    client: AsyncOpenAI, sample: Dict[str, Any], model: str = "gpt-5-mini-2025-08-07"
+    client: AsyncOpenAI, sample: Dict[str, Any], model: str = Config.DEFAULT_MODEL
 ) -> Dict[str, Any]:
     """Evaluate faithfulness for a single sample using OpenAI"""
 
@@ -59,7 +49,7 @@ Faithfulness measures whether the answer can be inferred from the given contexts
 
 Question: {sample["question"]}
 Answer: {sample["answer"]}
-Retrieved Contexts: {sample["contexts"]}
+Retrieved Contexts: {sample.get("contexts", "")}
 
 Please evaluate the faithfulness of the answer on a scale from 0 to 1, where:
 - 0: Answer contains information not supported by contexts or contradicts them
@@ -68,134 +58,110 @@ Please evaluate the faithfulness of the answer on a scale from 0 to 1, where:
 Provide your evaluation as a JSON object with 'value' (float between 0 and 1) and 'reason' (string explanation).
 """
 
-    response = await client.beta.chat.completions.parse(
-        model=model,
-        messages=[{"role": "user", "content": prompt}],
-        response_format=FaithfulnessResponse,
-        temperature=1,
-    )
+    try:
+        response = await client.beta.chat.completions.parse(
+            model=model,
+            messages=[{"role": "user", "content": prompt}],
+            response_format=FaithfulnessResponse,
+            temperature=0.1,
+        )
 
-    result = response.choices[0].message.parsed
-    return {
-        "sample": sample,
-        "faithfulness_score": result.value,
-        "reasoning": result.reason,
-        "success": True,
-    }
+        result = response.choices[0].message.parsed
+        return {
+            "sample": sample,
+            "faithfulness_score": result.value,
+            "reasoning": result.reason,
+            "success": True,
+        }
+    except Exception as e:
+        logger.warning(f"Failed to evaluate sample: {e}")
+        return {
+            "sample": sample,
+            "faithfulness_score": None,
+            "reasoning": str(e),
+            "success": False,
+        }
 
 
 async def evaluate_faithfulness_modern_simplified(
-    data: List[Dict[str, Any]], client: AsyncOpenAI, model: str = "gpt-5-mini-2025-08-07"
+    data: List[Dict[str, Any]], client: AsyncOpenAI, model: str = Config.DEFAULT_MODEL
 ) -> List[Dict[str, Any]]:
     """Evaluate faithfulness using modern simplified approach"""
     logger.info("Starting faithfulness evaluation with modern simplified approach...")
 
-    # Process samples concurrently
-    tasks = [evaluate_sample_faithfulness(client, sample, model) for sample in data]
+    # Process samples with controlled concurrency
+    semaphore = asyncio.Semaphore(Config.MAX_CONCURRENT_EVALUATIONS)
+    
+    async def evaluate_with_limit(sample):
+        async with semaphore:
+            return await evaluate_sample_faithfulness(client, sample, model)
+    
+    tasks = [evaluate_with_limit(sample) for sample in data]
     results = await asyncio.gather(*tasks)
 
     logger.info("Faithfulness evaluation completed")
     return results
 
 
-def save_results(
-    results: List[Dict[str, Any]], dataset_display_name: str, output_path: str
-):
-    """Save evaluation results to file"""
-    logger.info(f"Saving results to {output_path}")
-
-    valid_scores = [
-        r["faithfulness_score"]
-        for r in results
-        if r["success"] and r["faithfulness_score"] is not None
-    ]
-    avg_score = sum(valid_scores) / len(valid_scores) if valid_scores else None
-
-    results_data = {
-        "timestamp": datetime.now().isoformat(),
-        "dataset": dataset_display_name,
-        "framework": "modern_simplified",
-        "metric": "faithfulness",
-        "num_samples": len(results),
-        "num_successful": len(valid_scores),
-        "average_faithfulness": avg_score,
-        "scores": valid_scores,
-        "detailed_results": results,
-    }
-
-    with open(output_path, "w") as f:
-        json.dump(results_data, f, indent=2)
-
-    logger.info("Results saved successfully")
-
-
 async def main():
     """Main execution function"""
-    parser = argparse.ArgumentParser(
-        description="Evaluate faithfulness using Modern Simplified Approach"
-    )
-    parser.add_argument(
-        "--dataset",
-        type=str,
-        choices=["amnesty", "fiqa"],
-        required=True,
-        help="Dataset to evaluate (amnesty or fiqa)",
-    )
-    parser.add_argument(
-        "--data-file",
-        type=str,
-        required=True,
-        help="Path to preprocessed data JSON file",
-    )
-    parser.add_argument(
-        "--output-dir",
-        type=str,
-        default="results",
-        help="Output directory for results (default: results)",
-    )
-    parser.add_argument(
-        "--model",
-        type=str,
-        default="gpt-5-mini-2025-08-07",
-        help="Model to use for evaluation (default: gpt-5-mini-2025-08-07)",
-    )
-
+    # Use shared CLI utilities (model argument already included for modern implementations)
+    parser = create_metric_parser("faithfulness", "modern_simplified")
     args = parser.parse_args()
+    
+    # Validate common arguments
+    validate_common_args(args)
 
     logger.info(
         f"Starting {args.dataset.upper()} faithfulness evaluation with Modern Simplified Approach"
     )
 
-    import os
+    try:
+        # Get OpenAI API key from config
+        api_key = Config.get_openai_api_key()
+        client = AsyncOpenAI(api_key=api_key)
 
-    client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        # Load data using shared utility
+        data, dataset_display_name, total_samples = DataLoader.load_from_preprocessed_file(args.data_file)
 
-    data, dataset_display_name, total_samples = load_preprocessed_data(args.data_file)
+        # Evaluate faithfulness
+        results = await evaluate_faithfulness_modern_simplified(data, client, args.model)
 
-    results = await evaluate_faithfulness_modern_simplified(data, client, args.model)
+        # Save results using shared utility
+        script_dir = Path(__file__).parent
+        results_dir = script_dir.parent / "results" / args.dataset
+        results_dir.mkdir(parents=True, exist_ok=True)
 
-    script_dir = Path(__file__).parent
-    results_dir = script_dir.parent / "results" / args.dataset
-    results_dir.mkdir(parents=True, exist_ok=True)
-
-    output_filename = f"{args.dataset}_modern_simplified.json"
-    output_path = results_dir / output_filename
-    save_results(results, dataset_display_name, str(output_path))
-
-    valid_scores = [
-        r["faithfulness_score"]
-        for r in results
-        if r["success"] and r["faithfulness_score"] is not None
-    ]
-    if valid_scores:
-        print(
-            f"\n=== {dataset_display_name} Faithfulness Evaluation Results (Modern Simplified) ==="
+        output_filename = get_output_filename(args.dataset, "modern_simplified", "faithfulness")
+        output_path = results_dir / output_filename
+        
+        ResultSaver.save_modern_results(
+            results=results,
+            metric="faithfulness",
+            dataset_name=dataset_display_name,
+            output_path=str(output_path),
+            implementation="modern_simplified"
         )
-        print(
-            f"Average Faithfulness Score: {sum(valid_scores) / len(valid_scores):.4f}"
-        )
-        print(f"Successful evaluations: {len(valid_scores)}/{total_samples}")
-        print(f"Results saved to: {output_path}")
+
+        # Print summary using shared utility
+        valid_results = [r for r in results if r["success"] and r["faithfulness_score"] is not None]
+        if valid_results:
+            scores = [r["faithfulness_score"] for r in valid_results]
+            average_score = sum(scores) / len(scores)
+            
+            print_evaluation_summary(
+                dataset_name=dataset_display_name,
+                metric="faithfulness",
+                implementation="modern_simplified",
+                average_score=average_score,
+                num_successful=len(valid_results),
+                total_samples=total_samples,
+                output_path=str(output_path)
+            )
+
+    except Exception as e:
+        logger.error(f"Error during evaluation: {str(e)}")
+        raise
 
 
 if __name__ == "__main__":

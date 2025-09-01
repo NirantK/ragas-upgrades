@@ -21,6 +21,14 @@ from loguru import logger
 from metrics_registry import ImplementationInfo, MetricsRegistry
 from pydantic import BaseModel
 
+from common.config import Config
+from common.exceptions import (
+    EvaluationError, 
+    ResultSaveError, 
+    DataLoadError,
+    UnsupportedDatasetError
+)
+
 
 def load_dataset_by_name(
     dataset_name: str, 
@@ -139,12 +147,13 @@ class UnifiedEvaluationDriver:
                     continue
 
                 for dataset in datasets:
-                    # Check if implementation supports this dataset
+                    # Check if implementation supports this dataset - fail fast
                     if dataset not in impl_info.supports_datasets:
-                        logger.warning(
-                            f"Implementation {impl_info.name} doesn't support dataset {dataset}"
+                        raise UnsupportedDatasetError(
+                            impl_info.name, 
+                            dataset, 
+                            impl_info.supports_datasets
                         )
-                        continue
 
                     # Create output directory structure
                     output_dir = self.results_dir / metric / dataset
@@ -284,27 +293,44 @@ class UnifiedEvaluationDriver:
             with open(output_file, "r") as f:
                 data = json.load(f)
 
-            # Try various field names for average score
+            # Get metric-specific field name from config
+            metric_name = job.metric if hasattr(job, 'metric') else "unknown"
+            expected_field = Config.get_metric_field_name(metric_name)
+            
+            # Try expected field first, then common alternatives
             score_fields = [
-                "average_faithfulness",
+                expected_field,
                 "average_score",
                 "mean_score",
                 "avg_score",
             ]
+            
             average_score = None
             for field in score_fields:
                 if field in data:
                     average_score = data[field]
                     break
+            
+            if average_score is None:
+                raise DataLoadError(
+                    output_file, 
+                    f"No valid score field found. Expected: {score_fields}"
+                )
 
-            # Try various field names for sample count
-            num_samples = data.get("num_samples", data.get("sample_count", None))
+            # Get sample count with validation
+            num_samples = data.get("num_samples") or data.get("sample_count")
+            if num_samples is None:
+                raise DataLoadError(
+                    output_file,
+                    "No valid sample count field found (num_samples or sample_count)"
+                )
 
             return average_score, num_samples
 
+        except (json.JSONDecodeError, FileNotFoundError, KeyError) as e:
+            raise DataLoadError(output_file, f"Could not parse results: {e}")
         except Exception as e:
-            logger.warning(f"Could not parse results from {output_file}: {e}")
-            return None, None
+            raise DataLoadError(output_file, f"Unexpected error parsing results: {e}")
 
     def execute_jobs_parallel(
         self, jobs: List[EvaluationJob], max_workers: int = 4

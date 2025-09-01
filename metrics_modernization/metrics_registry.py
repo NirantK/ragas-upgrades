@@ -13,6 +13,13 @@ from typing import Any, Dict, List, Optional
 from loguru import logger
 from pydantic import BaseModel
 
+from common.config import Config
+from common.exceptions import (
+    ImplementationNotFoundError,
+    UnsupportedDatasetError, 
+    DataValidationError
+)
+
 
 class ImplementationInfo(BaseModel):
     """Information about a metric implementation"""
@@ -142,7 +149,14 @@ class MetricsRegistry:
             datasets.append("amnesty")
         if "fiqa" in content.lower():
             datasets.append("fiqa")
-        return datasets if datasets else ["amnesty", "fiqa"]  # Default assumption
+        
+        # Require explicit dataset declarations - no silent fallbacks
+        if not datasets:
+            raise DataValidationError(
+                "supported_datasets",
+                "explicit dataset support declarations in implementation file"
+            )
+        return datasets
 
     def get_implementations(self, metric: str) -> List[ImplementationInfo]:
         """Get all implementations for a specific metric"""
@@ -154,13 +168,16 @@ class MetricsRegistry:
 
     def get_implementation_by_name(
         self, metric: str, name: str
-    ) -> Optional[ImplementationInfo]:
+    ) -> ImplementationInfo:
         """Get specific implementation by metric and name"""
         implementations = self.get_implementations(metric)
         for impl in implementations:
             if impl.name == name:
                 return impl
-        return None
+        
+        # Fail fast instead of returning None
+        available = [impl.name for impl in implementations]
+        raise ImplementationNotFoundError(metric, name, available)
 
     def list_implementations(
         self, metric: Optional[str] = None
@@ -197,6 +214,46 @@ class MetricsRegistry:
             json.dump(registry_data, f, indent=2)
 
         logger.info(f"Registry information saved to {output_path}")
+    
+    def validate_implementation_dataset_support(
+        self, metric: str, implementation_name: str, dataset: str
+    ) -> None:
+        """Validate that an implementation supports a dataset."""
+        
+        # Get the implementation
+        impl = self.get_implementation_by_name(metric, implementation_name)
+        
+        # Check if dataset is supported
+        if dataset not in impl.supports_datasets:
+            raise UnsupportedDatasetError(
+                implementation_name, 
+                dataset, 
+                impl.supports_datasets
+            )
+    
+    def get_compatible_implementations(
+        self, metric: str, dataset: str
+    ) -> List[ImplementationInfo]:
+        """Get all implementations that support a specific dataset."""
+        
+        implementations = self.get_implementations(metric)
+        compatible = [
+            impl for impl in implementations 
+            if dataset in impl.supports_datasets
+        ]
+        
+        if not compatible:
+            available_datasets = set()
+            for impl in implementations:
+                available_datasets.update(impl.supports_datasets)
+            
+            raise UnsupportedDatasetError(
+                f"any implementation for {metric}",
+                dataset,
+                list(available_datasets)
+            )
+        
+        return compatible
 
 
 def create_registry(base_path: Optional[str] = None) -> MetricsRegistry:

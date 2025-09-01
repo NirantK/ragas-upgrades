@@ -12,7 +12,7 @@
       "seed": 42,
       "success": true,
       "execution_time": 4.759181,
-      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/results/faithfulness/amnesty/amnesty_modern_simplified.json",
+      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/faithfulness/results/amnesty/amnesty_modern_simplified.json",
       "average_score": 0.93,
       "num_samples": 10,
       "error_message": null
@@ -25,7 +25,7 @@
       "seed": 42,
       "success": true,
       "execution_time": 5.057106,
-      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/results/faithfulness/fiqa/fiqa_modern_simplified.json",
+      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/faithfulness/results/fiqa/fiqa_modern_simplified.json",
       "average_score": 0.9400000000000001,
       "num_samples": 10,
       "error_message": null
@@ -38,7 +38,7 @@
       "seed": 42,
       "success": true,
       "execution_time": 14.951305,
-      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/results/faithfulness/fiqa/fiqa_modern_exact_replica.json",
+      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/faithfulness/results/fiqa/fiqa_modern_exact_replica.json",
       "average_score": 0.8025,
       "num_samples": 10,
       "error_message": null
@@ -51,7 +51,7 @@
       "seed": 42,
       "success": true,
       "execution_time": 22.391452,
-      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/results/faithfulness/fiqa/fiqa_ragas_main.json",
+      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/faithfulness/results/fiqa/fiqa_ragas_main.json",
       "average_score": 0.7930555555555555,
       "num_samples": 10,
       "error_message": null
@@ -64,7 +64,7 @@
       "seed": 42,
       "success": true,
       "execution_time": 35.224172,
-      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/results/faithfulness/amnesty/amnesty_modern_exact_replica.json",
+      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/faithfulness/results/amnesty/amnesty_modern_exact_replica.json",
       "average_score": 0.5724737631184408,
       "num_samples": 10,
       "error_message": null
@@ -77,7 +77,7 @@
       "seed": 42,
       "success": true,
       "execution_time": 50.922798,
-      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/results/faithfulness/amnesty/amnesty_ragas_main.json",
+      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/faithfulness/results/amnesty/amnesty_ragas_main.json",
       "average_score": 0.5799509803921569,
       "num_samples": 10,
       "error_message": null

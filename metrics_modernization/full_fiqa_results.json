@@ -12,7 +12,7 @@
       "seed": 42,
       "success": true,
       "execution_time": 4.118471,
-      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/results/faithfulness/fiqa/fiqa_modern_simplified.json",
+      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/faithfulness/results/fiqa/fiqa_modern_simplified.json",
       "average_score": 0.8833333333333333,
       "num_samples": 30,
       "error_message": null
@@ -25,7 +25,7 @@
       "seed": 42,
       "success": true,
       "execution_time": 18.297729,
-      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/results/faithfulness/fiqa/fiqa_modern_exact_replica.json",
+      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/faithfulness/results/fiqa/fiqa_modern_exact_replica.json",
       "average_score": 0.796415343915344,
       "num_samples": 30,
       "error_message": null
@@ -38,7 +38,7 @@
       "seed": 42,
       "success": true,
       "execution_time": 35.480563,
-      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/results/faithfulness/fiqa/fiqa_ragas_main.json",
+      "output_file": "/Users/nirantk/Desktop/scratchpad/ragas-upgrades/metrics_modernization/faithfulness/results/fiqa/fiqa_ragas_main.json",
       "average_score": 0.7753306878306879,
       "num_samples": 30,
       "error_message": null

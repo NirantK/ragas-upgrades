@@ -175,7 +175,7 @@ async def main():
     results = await evaluate_faithfulness_modern_simplified(data, client, args.model)
 
     script_dir = Path(__file__).parent
-    results_dir = script_dir.parent / "results"
+    results_dir = script_dir.parent / "results" / args.dataset
     results_dir.mkdir(parents=True, exist_ok=True)
 
     output_filename = f"{args.dataset}_modern_simplified.json"

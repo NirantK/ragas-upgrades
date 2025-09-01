@@ -22,7 +22,9 @@ def load_results():
     ]
 
     for filename, dataset, framework in files:
-        filepath = results_dir / filename
+        # Determine subdirectory based on dataset
+        dataset_subdir = "amnesty" if "amnesty" in filename else "fiqa"
+        filepath = results_dir / dataset_subdir / filename
         if filepath.exists():
             with open(filepath, "r") as f:
                 data = json.load(f)

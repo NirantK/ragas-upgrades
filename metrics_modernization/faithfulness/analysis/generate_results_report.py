@@ -34,7 +34,9 @@ def load_all_results():
     summary_data = []
 
     for filename, (dataset, approach) in files_mapping.items():
-        filepath = results_dir / filename
+        # Determine subdirectory based on dataset
+        dataset_subdir = "amnesty" if "amnesty" in filename else "fiqa"
+        filepath = results_dir / dataset_subdir / filename
         if filepath.exists():
             with open(filepath, "r") as f:
                 data = json.load(f)

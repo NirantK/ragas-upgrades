@@ -152,7 +152,7 @@ async def evaluate_sample_faithfulness_exact(
 ) -> Dict[str, Any]:
     """Evaluate faithfulness using exact Ragas Main two-step process"""
 
-    statements = await generate_statements(client, sample["question"], sample["answer"])
+    statements = await generate_statements(client, sample["question"], sample["answer"], model)
 
     if not statements:
         return {
@@ -164,7 +164,7 @@ async def evaluate_sample_faithfulness_exact(
             "success": True,
         }
 
-    verdicts = await evaluate_statements_nli(client, sample["contexts"], statements)
+    verdicts = await evaluate_statements_nli(client, sample["contexts"], statements, model)
 
     faithful_statements = sum(1 for verdict in verdicts if verdict.verdict == 1)
     total_statements = len(statements)
@@ -186,7 +186,7 @@ async def evaluate_sample_faithfulness_exact(
 
 
 async def evaluate_faithfulness_exact(
-    data: List[Dict[str, Any]], client: AsyncOpenAI
+    data: List[Dict[str, Any]], client: AsyncOpenAI, model: str = "gpt-5-mini-2025-08-07"
 ) -> List[Dict[str, Any]]:
     """Evaluate faithfulness using exact Ragas Main methodology"""
     logger.info("Starting faithfulness evaluation with exact Ragas Main approach...")

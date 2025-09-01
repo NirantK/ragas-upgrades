@@ -130,8 +130,8 @@ class MetricsRegistry:
 
         if "openai" in content.lower() and "asyncopenai" in content:
             if "exact_replica" in name:
-                return "ragas_experimental_replica"
-            return "ragas_experimental"
+                return "modern_exact_replica"
+            return "modern_simplified"
 
         return "unknown"
 

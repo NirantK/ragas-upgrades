@@ -169,9 +169,9 @@ def main():
     parser.add_argument(
         "--metric",
         type=str,
-        choices=["faithfulness", "answer_relevance", "answer_correctness"],
+        choices=["faithfulness", "answer_relevance", "answer_correctness", "context_recall", "context_precision"],
         required=True,
-        help="Metric to compare (faithfulness, answer_relevance, or answer_correctness)",
+        help="Metric to compare (faithfulness, answer_relevance, answer_correctness, context_recall, or context_precision)",
     )
 
     args = parser.parse_args()

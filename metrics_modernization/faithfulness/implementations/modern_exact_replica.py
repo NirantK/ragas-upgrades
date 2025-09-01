@@ -191,7 +191,7 @@ async def evaluate_faithfulness_exact(
     """Evaluate faithfulness using exact Ragas Main methodology"""
     logger.info("Starting faithfulness evaluation with exact Ragas Main approach...")
 
-    tasks = [evaluate_sample_faithfulness_exact(client, sample) for sample in data]
+    tasks = [evaluate_sample_faithfulness_exact(client, sample, model) for sample in data]
     results = await asyncio.gather(*tasks)
 
     logger.info("Faithfulness evaluation completed")
@@ -274,10 +274,10 @@ async def main():
 
     data, dataset_display_name, total_samples = load_preprocessed_data(args.data_file)
 
-    results = await evaluate_faithfulness_exact(data, client)
+    results = await evaluate_faithfulness_exact(data, client, args.model)
 
     script_dir = Path(__file__).parent
-    results_dir = script_dir.parent / args.output_dir
+    results_dir = script_dir.parent / "results"
     results_dir.mkdir(parents=True, exist_ok=True)
 
     output_filename = f"{args.dataset}_modern_exact_replica.json"

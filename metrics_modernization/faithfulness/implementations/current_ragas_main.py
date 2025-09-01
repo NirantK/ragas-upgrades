@@ -139,7 +139,7 @@ def main():
 
         # Save results
         script_dir = Path(__file__).parent
-        results_dir = script_dir.parent / args.output_dir
+        results_dir = script_dir.parent / "results"
         results_dir.mkdir(parents=True, exist_ok=True)
 
         output_filename = f"{args.dataset}_ragas_main.json"

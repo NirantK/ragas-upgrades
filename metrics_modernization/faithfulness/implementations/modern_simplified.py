@@ -16,7 +16,6 @@ if str(metrics_dir) not in sys.path:
     sys.path.insert(0, str(metrics_dir))
 
 from dotenv import load_dotenv
-from loguru import logger
 from openai import AsyncOpenAI
 from pydantic import BaseModel, Field
 

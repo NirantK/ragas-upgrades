@@ -1,12 +1,22 @@
 """Universal comparison tool for evaluation results"""
 
 import argparse
+import os
+import sys
 from pathlib import Path
 from typing import Dict, List, Any
 
+# Change to the metrics_modernization directory to enable relative imports
+script_dir = Path(__file__).parent
+os.chdir(script_dir)
+
+# Add the current directory to Python path
+if str(script_dir) not in sys.path:
+    sys.path.insert(0, str(script_dir))
+
 from common.config import Config
-from common.result_saver import ResultSaver
 from common.exceptions import DataLoadError
+from common.result_saver import ResultSaver
 
 
 class ResultsComparator:

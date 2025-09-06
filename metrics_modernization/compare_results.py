@@ -4,7 +4,7 @@ import argparse
 import os
 import sys
 from pathlib import Path
-from typing import Dict, List, Any
+from typing import Dict, Any
 
 # Change to the metrics_modernization directory to enable relative imports
 script_dir = Path(__file__).parent
